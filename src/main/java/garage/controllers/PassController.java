@@ -1,5 +1,5 @@
 package garage.controllers;
 
-public class Customer {
+public class PassController {
 
 }

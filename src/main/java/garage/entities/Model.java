@@ -21,6 +21,30 @@ public class Model {
 	@OneToOne(targetEntity=Make.class)
 	@Column(name="make")
 	private List<Make> make;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Make> getMake() {
+		return make;
+	}
+
+	public void setMake(List<Make> make) {
+		this.make = make;
+	}
 	
 
 }

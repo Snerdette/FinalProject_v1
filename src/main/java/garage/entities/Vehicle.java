@@ -31,8 +31,50 @@ public class Vehicle {
 	@Column(name="plate_state")
 	private String plateState;
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<Make> getMake() {
+		return make;
+	}
+
+	public void setMake(List<Make> make) {
+		this.make = make;
+	}
+
+	public List<Color> getColor() {
+		return color;
+	}
+
+	public void setColor(List<Color> color) {
+		this.color = color;
+	}
+
+	public String getPlateNumber() {
+		return plateNumber;
+	}
+
+	public void setPlateNumber(String plateNumber) {
+		this.plateNumber = plateNumber;
+	}
+
+	public String getPlateState() {
+		return plateState;
+	}
+
+	public void setPlateState(String plateState) {
+		this.plateState = plateState;
+	}
+
 	//not in requirements to have a Vehicle belong to a customer, but should recommend some type of link.
 /*	@OneToOne(targetEntity=Customer.class)
 	@Column(name="customers")
 	public List<Customer> customers;*/
+	
+	
 }

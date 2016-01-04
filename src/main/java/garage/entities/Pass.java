@@ -1,6 +1,5 @@
 package garage.entities;
 
-import java.util.*;
 import java.util.Date;
 import java.util.List;
 
@@ -22,23 +21,28 @@ public class Pass {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private  Integer id;
 	
-	@Column(name="status")
-	private boolean status;
+	@Column(name="is_active")
+	private boolean isActive;
 	
+	//Date formatting should be MM/DD/YYYY.
 	@Column(name="expDate")
 	private Date expDate;
 	
+	//hoping to figure out MonetaryAmount Later.
 	@Column(name="price")
 	private BigDecimal price;
 	
+	//List of Customers that this pass belongs to. Many passes can be held by a customer.
 	@ManyToOne(targetEntity=Customer.class)
 	@Column(name="customers")
 	public List<Customer> customers;
 	
+	//List of Vehicles this Pass Might belong to, a vehicle may have many passes especially if some are expire.
 	@OneToMany(targetEntity=Vehicle.class)
 	@Column(name="vehicles")
 	public List<Vehicle> vehicles;
 	
+	//Type of a pass is referencing if it is a work day, weekend, annual, monthly or day pass.
 	@Column(name="type")
 	private String type;
 
@@ -46,16 +50,24 @@ public class Pass {
 		return id;
 	}
 
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public boolean isStatus() {
-		return status;
+	public boolean isIsActive() {
+		return isActive;
 	}
 
-	public void setStatus(boolean status) {
-		this.status = status;
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public Date getExpDate() {

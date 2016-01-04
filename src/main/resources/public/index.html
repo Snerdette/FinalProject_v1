@@ -5,7 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport content" width="device-width, initial-scale=1">
 	
+	<!-- Style Sheets -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
 	
 	<!-- Imports/CDNs -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -13,21 +15,31 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 
 	<!-- Links to my JavaScript Files -->
-	<!-- <script src="javascript/controllers/filename.js"></script>
-	<script src="javascript/controllers/filename.js"></script>
-	<script src="javascript/controllers/filename.js"></script>
-	<script src="javascript/controllers/filename.js"></script>
-	<script src="javascript/controllers/filename.js"></script>
-	<script src="javascript/controllers/filename.js"></script>
+	<script src="javascript/controllers/customerController.js"></script>
+	<script src="javascript/controllers/passController.js"></script>
+	<script src="javascript/controllers/vehicleController.js"></script>
+	<script src="javascript/controllers/editCustomerController.js"></script>
+	<script src="javascript/controllers/editPassController.js"></script>
+	<script src="javascript/controllers/editVehicleController.js"></script>
 	
-	<script src="javascript/factories/filename.js"></script>
-	<script src="javascript/factories/filename.js"></script>
-	<script src="javascript/factories/filename.js"></script>
-	<script src="javascript/factories/filename.js"></script>
-	<script src="javascript/factories/filename.js"></script> -->
+	<script src="javascript/factories/customerFactory.js"></script>
+	<script src="javascript/factories/passFactory.js"></script>
+	<script src="javascript/factories/vehicleFactory.js"></script>
 	
 </head>
 <body ng-app="myApp">
+<div id=headder">
+
+
+	<nav>
+		<ul>
+			<li ui-sref="dashboard">Dashboard</li>
+			<li ui-sref="viewPasses">View Passes</li>
+			<li ui-sref="viewCustomers">View Customers</li>
+			<li ui-sref="viewVehicles">View Vehicles</li>
+		</ul>
+	</nav>
+</div>
 
 <ui-view></ui-view>
 

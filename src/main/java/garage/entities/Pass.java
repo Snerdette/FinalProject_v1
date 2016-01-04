@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import java.math.BigDecimal;
@@ -36,7 +37,7 @@ public class Pass {
 	private BigDecimal price;
 	
 	//List of Customers that this pass belongs to. Many passes can be held by a customer.
-	@ManyToOne(targetEntity=Customer.class)
+	@OneToMany(targetEntity=Customer.class)
 	@Column(name="customers")
 	public List<Customer> customers;
 	

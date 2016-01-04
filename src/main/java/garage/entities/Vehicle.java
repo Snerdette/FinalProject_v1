@@ -1,15 +1,10 @@
 package garage.entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,12 +15,14 @@ public class Vehicle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private  Integer id;
 	
-	@ManyToOne(targetEntity=Make.class)
-	public List<Make> make;
+	@Column(name="make")
+	public String make;
 	
-	@OneToMany(targetEntity=Color.class)
+	@Column(name="model")
+	public String model;
+	
 	@Column(name="color")
-	private List<Color> color;
+	private String color;
 	
 	@Column(name="plate_number")
 	private String plateNumber;
@@ -39,22 +36,6 @@ public class Vehicle {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public List<Make> getMake() {
-		return make;
-	}
-
-	public void setMake(List<Make> make) {
-		this.make = make;
-	}
-
-	public List<Color> getColor() {
-		return color;
-	}
-
-	public void setColor(List<Color> color) {
-		this.color = color;
 	}
 
 	public String getPlateNumber() {
@@ -73,6 +54,30 @@ public class Vehicle {
 		this.plateState = plateState;
 	}
 
+	public String getMake() {
+		return make;
+	}
+
+	public void setMake(String make) {
+		this.make = make;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
 	//not in requirements to have a Vehicle belong to a customer, but should recommend some type of link.
 /*	@OneToOne(targetEntity=Customer.class)
 	@Column(name="customers")

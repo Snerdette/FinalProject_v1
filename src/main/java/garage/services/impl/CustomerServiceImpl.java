@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import garage.controllers.CustomerController;
 import garage.dao.CustomerDao;
@@ -12,7 +13,7 @@ import garage.entities.Customer;
 import garage.services.CustomerService;
 import garage.services.InvalidInputException;
 
-
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired

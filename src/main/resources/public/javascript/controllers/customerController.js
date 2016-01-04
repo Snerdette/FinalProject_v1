@@ -6,7 +6,7 @@ angular.module('myApp').controller('CustomerController', ['$scope', '$state', 'c
 	$scope.customerEditData = {};
 	$scope.isEditing = false;
 	
-	//Gets powers to add to hero powers.
+	//Gets The List of customers.
 	$scope.getAllCustomers = customerFactory.getAllcustomers().then(
 			function(success){
 				$scope.customerList = success.data;
@@ -20,7 +20,7 @@ angular.module('myApp').controller('CustomerController', ['$scope', '$state', 'c
 	
 //	$scope.customer. = [];	
 	
-	//takes in all data from createCustomer view and passes it to the database.
+	//Creating a Customer.
 	$scope.createCustomer = function(customer){
 		if(isValid){
 			customer.fName = $scope.customer.fName;
@@ -43,25 +43,28 @@ angular.module('myApp').controller('CustomerController', ['$scope', '$state', 'c
 		
 	};
 	
+	//Deleting a customer.
+	$scope.deleteCustomer = function(customerId){
+		customerFactory.deleteCustomer(customerId).then(
+				function(success){
+					$scope.deleteCustomerResult = success
+					console.log("success deleting customer");
+					$state.go("viewCustomers", {}, {reload:true});
+				},
+				function(error){
+					$scope.deleteCustomerResult = error;
+					console.log("error deleting Customer");
+				}
+		);
+	};
+	
 
 	$scope.getCustomerData = function(customer){
 		$state.go("editCustomer", {customer: customer});
 	}
 	
 	
-	$scope.deleteHero = function(heroId){
-		heroFactory.deleteHero(heroId).then(
-				function(success){
-					$scope.deleteHeroResult = success
-					console.log("success deleting hero");
-					$state.go("viewHeroes", {}, {reload:true});
-				},
-				function(error){
-					$scope.deleteHeroResult = error;
-					console.log("error deleting Hero");
-				}
-		);
-	};
+
 	
 	/*$scope.powers = [];*/
 	

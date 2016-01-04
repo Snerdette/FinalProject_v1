@@ -3,8 +3,6 @@ angular.module('myApp').controller('CustomerController', ['$scope', '$state', 'c
 	$scope.customer = {};
 	var isValid = true;
 	$scope.customerList = [];
-	$scope.customerEditData = {};
-	$scope.isEditing = false;
 	
 	//Gets The List of customers.
 	$scope.getAllCustomers = customerFactory.getAllcustomers().then(
@@ -17,8 +15,6 @@ angular.module('myApp').controller('CustomerController', ['$scope', '$state', 'c
 				console.log("Error retrieving CustomerList");
 			}
 	);
-	
-//	$scope.customer. = [];	
 	
 	//Creating a Customer.
 	$scope.createCustomer = function(customer){
@@ -58,15 +54,9 @@ angular.module('myApp').controller('CustomerController', ['$scope', '$state', 'c
 		);
 	};
 	
-
+	//Grabbing Customer Data for Edit customer Page.
 	$scope.getCustomerData = function(customer){
 		$state.go("editCustomer", {customer: customer});
 	}
-	
-	
-
-	
-	/*$scope.powers = [];*/
-	
 
 }]);

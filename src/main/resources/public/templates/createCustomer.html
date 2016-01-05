@@ -1,5 +1,29 @@
-<div ng-app="myApp">
-	<div class="container-fluid">
-	
+<div class="container-fluid" ng-app="myApp">
+	<div class="subheader">Register a Pilot</div>
+	<div class="displaybox" ng-controller="customerController as customer">
+		<form class="form-horizontal" role="form" ng-submit="createCustomer(customer)">
+			<div class="form-group">
+				<div class="col-md-6">
+					<label class="control-label">Name: </label>
+					<input type="text" ng-model="customer.fName">
+					<input type="text" ng-model="customer.lName">
+				</div>
+				<div class="col-md-3">
+					<label class="control-label">Email: </label>
+					<input type="text" ng-model="customer.email">
+				</div>
+				<div class="col-md-3">
+					<label class="control-label">Email: </label>
+					<input type="number" ng-model="customer.phone">
+				</div>
+					<div class="modal-footer">
+						<div class="col-md-3 col-md-offset-8 control-label">
+						<button class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
+							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true">Save</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>

@@ -75,3 +75,8 @@ li{
 li:nth-child(odd){
   background:#fe817f;
 }
+
+.displaybox {
+	background:#ffac04;
+	color:#9c9df7;
+}

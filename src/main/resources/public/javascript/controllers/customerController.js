@@ -5,7 +5,7 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'c
 	$scope.customerList = [];
 	
 	//Gets The List of customers.
-	$scope.getAllCustomers = customerFactory.getAllcustomers().then(
+	$scope.getAllCustomers = customerFactory.getAllCustomers().then(
 			function(success){
 				$scope.customerList = success.data;
 				console.log("Success retrieving CustomerList");

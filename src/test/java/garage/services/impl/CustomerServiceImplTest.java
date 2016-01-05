@@ -52,7 +52,7 @@ public class CustomerServiceImplTest {
 	 * Testing the CustomerDataServiceImpl for get(Customer customer);
 	 */
 	@Test
-	public void testGetCustomerObject(){
+	public void testGetCustomerObjectById(){
 		target.setCustomerDao(mockEm);
 		Customer expected = new Customer();
 		when(mockEm.getCustomerById(anyInt())).thenReturn(expected);
@@ -66,6 +66,25 @@ public class CustomerServiceImplTest {
 		assertEquals(actual, expected);	
 	}
  
+	/**
+	 * Testing the CustomerDataServiceImpl for get(Customer customer);
+	 */
+	@Test
+	public void testGetCustomerObjectByNullIdSadPath(){
+		target.setCustomerDao(mockEm);
+		Customer expected = new Customer();
+		expected.setId(null);
+		when(mockEm.getCustomerById(anyInt())).thenReturn(expected);
+		Customer actual = null;
+		
+		try {
+			actual = target.getCustomerById(3);
+		} catch (InvalidInputException e) {
+/*			e.printStackTrace();*/
+		}
+		assertEquals(actual, expected);	
+	}
+	
 	/**
 	 * Testing the CustomerDataServiceImpl for adding a customer.
 	 */
@@ -101,7 +120,7 @@ public class CustomerServiceImplTest {
 		customer.setId(2);
 		target.deleteCustomer(2);
 		
-		boolean result;
+		boolean result = false;
 		try{
 			target.getCustomerById(2);
 			result = false;
@@ -117,7 +136,7 @@ public class CustomerServiceImplTest {
 		Customer customer = new Customer();
 		customer.setId(null);
 		
-		boolean result;
+		boolean result = false;
 		try {
 			target.getCustomerById(null);
 			result = true;
@@ -133,12 +152,33 @@ public class CustomerServiceImplTest {
 	//Need to try adding a customer with a null value for customer
 		@Test
 		public void testAddingCustomerWithNullCustomerValueSadPath() {
+			@SuppressWarnings("unused")
 			Customer customer = new Customer();
 			customer = null;
 			
 			boolean result;
 			try {
 				target.addCustomer(null);
+				result = true;
+				
+			}catch(DataIntegrityViolationException dive){
+				result = false;
+				
+			}
+			assertFalse(result);
+			
+		}
+		
+		//Need to try updating a customer with a null value for customer
+		@Test
+		public void testUpdatingCustomerWithNullCustomerValueSadPath() {
+			@SuppressWarnings("unused")
+			Customer customer = new Customer();
+			customer = null;
+			
+			boolean result;
+			try {
+				target.updateCustomer(null);
 				result = true;
 				
 			}catch(DataIntegrityViolationException dive){

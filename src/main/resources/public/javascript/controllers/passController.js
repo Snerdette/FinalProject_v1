@@ -1,4 +1,4 @@
-angular.module('myApp').controller('PassController', ['$scope', '$state', 'passFactory', 'vehicleFactory', 'customerFactory', function($scope, $state, passFactory, customerFactory, vehicleFactory){
+angular.module('myApp').controller('passController', ['$scope', '$state', 'passFactory', 'vehicleFactory', 'customerFactory', function($scope, $state, passFactory, customerFactory, vehicleFactory){
 	
 	$scope.pass = {};
 	var isValid = true;

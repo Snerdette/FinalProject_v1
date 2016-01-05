@@ -1,4 +1,4 @@
-angular.module('myApp').controller('editCustomerController', ['$scope', '$state', 'customerFactory', 'aCustomer',  function($scope, $state, customerFactory, aCustomer){
+angular.module('myApp').controller('editCustomerController', ['$scope', '$state', 'customerFactory', 'aCustomer', function($scope, $state, customerFactory, aCustomer){
 	
 	$scope.customer = aCustomer.data;
 	$scope.customerList = [];

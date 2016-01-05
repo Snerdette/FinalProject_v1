@@ -6,39 +6,70 @@
 	// Create Power page.
 	function appConfig($stateProvider) {
 
-
-		// Create a Customer.
+		// Index page.									                  Index Page.
+		var index = {
+			name : 'index',
+			url : '/index',
+			templateUrl : 'index.html'
+		};
+		$stateProvider.state(index);
+		
+		// viewCustomers page.												View Pages.
+		var viewCustomers = {
+			name : 'viewCustomers',
+			url : '/viewCustomers',
+			templateUrl : '../templates/viewCustomers.html',
+			controller: 'customerController'
+		};
+		$stateProvider.state(viewCustomers);
+		
+		// viewPasses page.
+		var viewPasses = {
+			name : 'viewPasses',
+			url : '/viewPasses',
+			templateUrl : '../templates/viewPasses.html',
+			controller: 'passController'
+		};
+		$stateProvider.state(viewPasses);
+		
+		// viewVehicles page.
+		var viewVehicles = {
+			name : 'viewVehicles',
+			url : '/viewVehicles',
+			templateUrl : '../templates/viewVehicles.html',
+			controller: 'vehicleController'
+		};
+		$stateProvider.state(viewVehicles);
+		
+		// Create a Customer.												Create Pages.
 		var createCustomer = {
 			name : 'createCustomer',
-			url : '/createCustomer/{cutomer}',
+			url : '/createCustomer',
 			templateUrl : '../templates/createCustomer.html',
 			controller: 'customerController'
-		
 		};
-		$stateProvider.state(createCutomer);
+		$stateProvider.state(createCustomer);
 		
 		
 		// Create a Pass.
 		var createPass = {
 			name : 'createPass',
-			url : '/createPass/{pass}',
+			url : '/createPass}',
 			templateUrl : '../templates/createPass.html',
 			controller: 'passController'
-		
 		};
 		$stateProvider.state(createPass);
 		
 		// Create a Customer.
 		var createVehicle = {
 			name : 'createVehicle',
-			url : '/createVehicle/{vehicle}',
+			url : '/createVehicle',
 			templateUrl : '../templates/createVehicle.html',
 			controller: 'vehicleController'
-		
 		};
 		$stateProvider.state(createVehicle);
 
-		// Edit a Customer.
+		// Edit a Customer.													Edit Pages.
 		var editCustomer = {
 			name : 'editCustomer',
 			url : '/editCustomer/{customer}',
@@ -66,19 +97,19 @@
 		};
 		$stateProvider.state(editPass);
 		
-		// Edit a Customer.
-		var editCustomer = {
-			name : 'editCustomer',
-			url : '/editCustomer/{customer}',
-			templateUrl : '../templates/editCustomer.html',
-			controller: 'editCustomerController',
+		// Edit a Vehicle.
+		var editVehicle = {
+			name : 'editVehicle',
+			url : '/editVehicle/{vehicle}',
+			templateUrl : '../templates/editVehicle.html',
+			controller: 'editVehicleController',
 			resolve: {
-				aCustomer: function(customerFactory, $stateParams) {
-					return customerFactory.getCustomer($stateParams.customer);
+				aVehicle: function(vehicleFactory, $stateParams) {
+					return vehicleFactory.getVehicle($stateParams.customer);
 				}
 			}
 		};
-		$stateProvider.state(editCustomer);
+		$stateProvider.state(editVehicle);
 
 	}
 })();

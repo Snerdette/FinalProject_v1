@@ -1,4 +1,4 @@
-angular.module('myApp').controller('VehicleController', ['$scope', '$state', 'vehicleFactory', function($scope, $state, vehicleFactory){
+angular.module('myApp').controller('vehicleController', ['$scope', '$state', 'vehicleFactory', function($scope, $state, vehicleFactory){
 	
 	$scope.vehicle = {};
 	$scope.vehicleList = [];

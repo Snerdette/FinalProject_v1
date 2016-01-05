@@ -7,14 +7,19 @@
 	
 	<!-- Style Sheets -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Sarpanch:800' rel='stylesheet' type='text/css'>
 	
 	<!-- Imports/CDNs -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-
+	
 	<!-- Links to my JavaScript Files -->
+	<script src="javascript/app.js"></script>
+	<script src="javascript/routes.js"></script>
+	
+	
 	<script src="javascript/controllers/customerController.js"></script>
 	<script src="javascript/controllers/passController.js"></script>
 	<script src="javascript/controllers/vehicleController.js"></script>
@@ -25,23 +30,20 @@
 	<script src="javascript/factories/customerFactory.js"></script>
 	<script src="javascript/factories/passFactory.js"></script>
 	<script src="javascript/factories/vehicleFactory.js"></script>
-	
+
 </head>
 <body ng-app="myApp">
-<div id=headder">
-
-
-	<nav>
-		<ul>
-			<li ui-sref="dashboard">Dashboard</li>
-			<li ui-sref="viewPasses">View Passes</li>
-			<li ui-sref="viewCustomers">View Customers</li>
-			<li ui-sref="viewVehicles">View Vehicles</li>
-		</ul>
-	</nav>
-</div>
-
-<ui-view></ui-view>
-
+	<div class="container-fluid">
+	  <h1><span>Space Dock</span></h1>  <h2><span>Engineering</span></h2>
+	  <ul>
+	    <li><a ui-sref="createPass">Create Pass</a></li>
+	    <li><a ui-sref="viewPasses">View Passes</a></li>
+	    <li><a ui-sref="createCustomer">Create Customer</a></li>
+	    <li><a ui-sref="viewCustomers">View Customer</a></li>
+	    <li><a ui-sref="createVehicle">Create Ship</a></li>
+		<li><a ui-sref="viewVehicles">View Ships</a></li>
+	  </ul>
+	  <ui-view></ui-view>
+	</div>
 </body>
 </html>

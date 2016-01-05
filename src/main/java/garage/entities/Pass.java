@@ -23,7 +23,7 @@ public class Pass {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private  Integer id;
+	public  Integer id;
 	
 	@Column(name="is_active")
 	private boolean isActive;

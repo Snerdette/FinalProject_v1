@@ -80,3 +80,11 @@ li:nth-child(odd){
 	background:#ffac04;
 	color:#9c9df7;
 }
+
+input.ng-invalid.ng-dirty {
+	border: 1px solid red;
+}
+
+aside{
+	display:block;
+}

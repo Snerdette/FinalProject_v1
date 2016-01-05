@@ -6,20 +6,25 @@
 			<div class="form-group">
 				<div class="col-md-6">
 					<label class="control-label">Name: </label>
-					<input type="text" ng-model="customer.fName">
-					<input type="text" ng-model="customer.lName">
+					<input type="text" ng-model="customer.firstName" required>
+					<input type="text" ng-model="customer.lastName" required>
 				</div>
 				<div class="col-md-3">
 					<label class="control-label">Email: </label>
-					<input type="text" ng-model="customer.email">
+					<input type="email" name="email" ng-model="customer.email" required>
+					<span ng-show="frm.email.$dirty && frm.email.$error.required">Email Required!</span>
+					<span ng-show="frm.email.$dirty && frm.email.$error.email">Email is Invalid!</span>
 				</div>
 				<div class="col-md-3">
-					<label class="control-label">Email: </label>
-					<input type="number" ng-model="customer.phone">
+					<label class="control-label">Phone: </label>
+					<!-- <input type="text" ng-model="customer.phone" ui-mask="(999) 999-9999" ui-mask-placeholder ui-mask placeholder-char="_"/> -->
+				<!-- 	<input class="input-phone" type='text' phone-input ng-model="phoneVal"/> -->
+				<input type="text" ng-model="customer.phone" ui-mask="(999) 999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_" required/>
+
 				</div>
 					<div class="modal-footer">
 						<div class="col-md-3 col-md-offset-8 control-label">
-						<button class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
+						<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
 							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true">Save</span>
 						</button>
 					</div>

@@ -34,7 +34,7 @@ public class Pass {
 	
 	//hoping to figure out MonetaryAmount Later.
 	@Column(name="price")
-	private BigDecimal price;
+	private double price;
 	
 	//List of Customers that this pass belongs to. Many passes can be held by a customer.
 	@OneToMany(targetEntity=Customer.class)
@@ -82,12 +82,12 @@ public class Pass {
 		this.expDate = expDate;
 	}
 
-	public BigDecimal getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	public void setPrice(double d) {
+		this.price = d;
 	}
 
 	public List<Customer> getCustomers() {

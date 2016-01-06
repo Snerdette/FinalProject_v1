@@ -1,8 +1,9 @@
-angular.module('myApp').controller('passController', ['$scope', '$state', 'passFactory', 'vehicleFactory', 'customerFactory', function($scope, $state, passFactory, customerFactory, vehicleFactory){
+angular.module('myApp').controller('passController', ['$scope', '$state', 'passFactory', 'customerFactory', 'vehicleFactory', function($scope, $state, passFactory, customerFactory, vehicleFactory){
 	
 	$scope.pass = {};
 	var isValid = true;
 	$scope.passList = [];
+	$scope.passEditData = {};
 	$scope.customerList = [];
 	$scope.vehicleList = [];
 	
@@ -17,6 +18,8 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 				console.log("Error retrieving PassList");
 			}
 	);
+	
+	$scope.pass.customers = [];
 	
 	//Gets The List of customers.
 	$scope.getCustomerList = customerFactory.getCustomerList().then(
@@ -66,6 +69,11 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 		
 	};
 	
+	//Grabbing Pass Data for Edit pass Page.
+	$scope.getPassData = function(pass){
+		$state.go("editPass", {pass: pass});
+	}
+	
 	//Deleting a pass.
 	$scope.deletePass = function(passId){
 		passFactory.deletePass(passId).then(
@@ -81,9 +89,6 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 		);
 	};
 	
-	//Grabbing Pass Data for Edit pass Page.
-	$scope.getPassData = function(pass){
-		$state.go("editPass", {pass: pass});
-	}
+
 
 }]);

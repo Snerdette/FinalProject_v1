@@ -13,7 +13,7 @@ angular.module('myApp').factory('passFactory', ['$http', function($http){
 		updatePass: function(passId, pass){
 			return $http.put('/pass/' + passId, pass);
 		},
-		getPass: function(pass){
+		getPassById: function(pass){
 			return $http.get('/pass/'+ pass);
 		}
 	}	

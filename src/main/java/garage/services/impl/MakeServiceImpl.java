@@ -26,12 +26,12 @@ public class MakeServiceImpl implements MakeService {
 	@Override
 	public List<Make> getMakeList() {
 		List<Make> make = makeDao.getMakeList();
-		List<Make> allMakes = new ArrayList<>();
+		List<Make> allMake = new ArrayList<>();
 		
 		for (Make e : make) {
-			allMakes.add(e);
+			allMake.add(e);
 		}
-		return allMakes;
+		return allMake;
 	}
 
 	@Override

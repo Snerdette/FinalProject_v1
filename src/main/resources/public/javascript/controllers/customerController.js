@@ -1,10 +1,9 @@
-angular.module('myApp').controller('customerController', ['$scope', '$state', 'passFactory', 'vehicleFactory', 'customerFactory', function($scope, $state, passFactory, customerFactory, vehicleFactory){
+angular.module('myApp').controller('customerController', ['$scope', '$state', 'customerFactory', function($scope, $state, customerFactory){
 	
 	$scope.customer = {};
 	var isValid = true;
-	$scope.passList = [];
-	$scope.customerList = [];
-	$scope.vehicleList = [];
+	$scope.customerEditData = {};
+
 	
 	//Gets The List of customers.
 	$scope.getCustomerList = customerFactory.getCustomerList().then(
@@ -13,7 +12,7 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'p
 				console.log("Success retrieving CustomerList");
 			},
 			function(error){
-				$scope.customerList = error;
+				$scope.customer = error;
 				console.log("Error retrieving CustomerList");
 			}
 	);
@@ -25,7 +24,6 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'p
 			customer.lastName = $scope.customer.lastName;
 			customer.email = $scope.customer.email;
 			customer.phone = $scope.customer.phone;
-
 			customerFactory.createCustomer(customer).then(
 				function(success){
 					console.log("Success Creating Customer");
@@ -37,8 +35,7 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'p
 					$scope.createCustomerResult = error;
 				}
 			);
-		}
-		
+		}	
 	};
 	
 	//Deleting a customer.

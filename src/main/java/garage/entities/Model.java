@@ -8,15 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="model", schema="public")
+@Table(name="Model", schema="public")
 public class Model {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public  Integer id;
 	
-	@Column(name="model", unique=true)
-	public String model;
+	@Column(name="name", unique=true)
+	public String name;
 
 	public Integer getId() {
 		return id;
@@ -26,12 +26,12 @@ public class Model {
 		this.id = id;
 	}
 
-	public String getModel() {
-		return model;
+	public String getName() {
+		return name;
 	}
 
-	public void setModel(String model) {
-		this.model = model;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

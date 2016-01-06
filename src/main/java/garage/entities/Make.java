@@ -13,17 +13,17 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="make", schema="public")
+@Table(name="Make", schema="public")
 public class Make {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public  Integer id;
 	
-	@Column(name="make")
-	private String make;
+	@Column(name="name")
+	private String name;
 	
-	@ManyToOne(targetEntity=Model.class)
+	@ManyToMany(targetEntity=Model.class)
 	public List<Model> model;
 
 	public Integer getId() {
@@ -42,12 +42,12 @@ public class Make {
 		this.model = model;
 	}
 
-	public String getMake() {
-		return make;
+	public String getName() {
+		return name;
 	}
 
-	public void setMake(String make) {
-		this.make = make;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

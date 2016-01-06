@@ -51,6 +51,7 @@ public class VehicleServiceImpl implements VehicleService{
 		}		
 	}
 	
+	@Override
 	public void updateVehicle(Vehicle vehicle) {
 		if (vehicle == null) {
 			throw new DataIntegrityViolationException("Vehicle number is null");

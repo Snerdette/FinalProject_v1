@@ -4,7 +4,7 @@ angular.module('myApp').factory('customerFactory', ['$http', function($http){
 		createCustomer: function(customer){
 			return $http.post('customer', customer);
 		},
-		getAllCustomers: function(customer){
+		getCustomerList: function(customer){
 			return $http.get('customer');
 		},
 		deleteCustomer: function(customerId){

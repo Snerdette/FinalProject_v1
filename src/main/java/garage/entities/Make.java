@@ -9,22 +9,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="make", schema="public")
 public class Make {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public  Integer id;
 	
 	@Column(name="make")
 	private String make;
 	
 	@ManyToOne(targetEntity=Model.class)
-	private Model model;
+	public List<Model> model;
 
 	public Integer getId() {
 		return id;
@@ -34,11 +34,11 @@ public class Make {
 		this.id = id;
 	}
 
-	public Model getModel() {
+	public List<Model> getModel() {
 		return model;
 	}
 
-	public void setModel(Model model) {
+	public void setModel(List<Model> model) {
 		this.model = model;
 	}
 
@@ -49,6 +49,5 @@ public class Make {
 	public void setMake(String make) {
 		this.make = make;
 	}
-	
 	
 }

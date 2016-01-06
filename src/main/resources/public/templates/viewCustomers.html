@@ -1,7 +1,7 @@
 <div class="displayBox" ng-app="myApp">
 	<div class="container-fluid" ng-controller="customerController as customer" id="customerContent" >
 	Customers: 
-		<div ng-repeat="customer in customer.list" class="displayCustomer row col-md-8">		
+		<div ng-repeat="customer in customerList" class="displayCustomer row col-md-8">		
 			Name: {{customer.lastName}}, {{customer.firstName}}
 			Phone: {{customer.phone}}
 			Email: {{customer.email}}

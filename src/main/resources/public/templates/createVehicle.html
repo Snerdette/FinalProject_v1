@@ -5,24 +5,17 @@
 			<div class="form-group">
 			<div class="col-md-6">
 					<label class="control-label">Year: </label>
-					<input ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016" >
-						
+					<input ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016" >		
 				</div>
 				<div class="col-md-3">
 					<label class="control-label">Make: </label>
-					<select ng-model="make" class="form-control" ng-options="make as make.name for make in makeList">
-						<option value="">Select a Make</option>
+					<select ng-model="make" class="form-control" ng-options="make as make.make for make in makeList">
 					</select>
-				</div>
 				<div class="col-md-3">
 					<label class="control-label">Model: </label>
-					<select ng-model="model" class="form-control" ng-options="model as model.name for model in modelList">
-						<option value="">Select a Model</option>
+					<select ng-model="model" class="form-control" ng-options="model as model.model for model in modelList">
 					</select>
-				</div>
-				<div class="col-md-3">
-					<label class="control-label">Email: </label>
-					<input type="email" name="email" ng-model="vehicle.email" required>
+						
 				</div>
 					<div class="modal-footer">
 						<div class="col-md-3 col-md-offset-8 control-label">

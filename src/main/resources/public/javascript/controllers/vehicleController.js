@@ -2,11 +2,13 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 	
 	$scope.vehicle = {};
 	$scope.vehicleList = [];
+	$scope.makeList = [];
+	$scope.modelList = [];
 	var isValid = true;
 	
 	
 	//Gets The List of vehicles.
-	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(
+	$scope.getVehicleList = vehicleFactory.getVehicleList().then(
 			function(success){
 				$scope.vehicleList = success.data;
 				console.log("Success retrieving VehicleList");
@@ -14,6 +16,30 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 			function(error){
 				$scope.vehicleList = error;
 				console.log("Error retrieving VehicleList");
+			}
+	);
+	
+	//Gets Model List
+	$scope.getModelList = vehicleFactory.getModelList().then(
+			function(success){
+				$scope.modelList = success.data;
+				console.log("Success retrieving ModelList");
+			},
+			function(error){
+				$scope.modelList = error;
+				console.log("Error retrieving ModelList");
+			}
+	);
+	
+	//Gets Make List
+	$scope.getMakeList = vehicleFactory.getMakeList().then(
+			function(success){
+				$scope.makeList = success.data;
+				console.log("Success retrieving MakeList");
+			},
+			function(error){
+				$scope.makeList = error;
+				console.log("Error retrieving MakeList");
 			}
 	);
 	

@@ -1,13 +1,12 @@
 angular.module('myApp').controller('editVehicleController', ['$scope', '$state', 'vehicleFactory', 'aVehicle',  function($scope, $state, vehicleFactory, aVehicle){
 	
-	
 	$scope.vehicle = aVehicle.data;
 	$scope.vehicleList = [];
-
-	
+	$scope.makeList = [];
+	$scope.modelList = [];
 	
 	//Gets The List of vehicles.
-	$scope.getAllVehicles = vehicleFactory.getAllVehicle().then(
+	$scope.getVehicleList = vehicleFactory.getVehicleList().then(
 			function(success){
 				$scope.vehicleList = success.data;
 				console.log("Success retrieving VehicleList");
@@ -17,6 +16,31 @@ angular.module('myApp').controller('editVehicleController', ['$scope', '$state',
 				console.log("Error retrieving VehicleList");
 			}
 	);
+	
+	//Gets Model List
+	$scope.getModelList = vehicleFactory.getModelList().then(
+			function(success){
+				$scope.modelList = success.data;
+				console.log("Success retrieving ModelList");
+			},
+			function(error){
+				$scope.modelList = error;
+				console.log("Error retrieving ModelList");
+			}
+	);
+	
+	//Gets Make List
+	$scope.getMakeList = vehicleFactory.getMakeList().then(
+			function(success){
+				$scope.makeList = success.data;
+				console.log("Success retrieving MakeList");
+			},
+			function(error){
+				$scope.makeList = error;
+				console.log("Error retrieving MakeList");
+			}
+	);
+	
 
 	//After Vehicle is edited, PUT data to Database
 	$scope.updateVehicle = function(vehicle){

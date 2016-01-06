@@ -51,6 +51,7 @@ public class PassServiceImpl implements PassService {
 		}		
 	}
 	
+	@Override
 	public void updatePass(Pass pass) {
 		if (pass == null) {
 			throw new DataIntegrityViolationException("Pass number is null");

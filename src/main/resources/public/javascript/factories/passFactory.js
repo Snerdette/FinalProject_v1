@@ -4,7 +4,7 @@ angular.module('myApp').factory('passFactory', ['$http', function($http){
 		createPass: function(pass){
 			return $http.post('pass', pass);
 		},
-		getAllPasss: function(pass){
+		getPassList: function(pass){
 			return $http.get('pass');
 		},
 		deletePass: function(passId){

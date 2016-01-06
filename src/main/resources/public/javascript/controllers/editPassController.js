@@ -6,7 +6,7 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 	$scope.passList = [];
 	
 	//Gets The List of customers.
-	$scope.getAllCustomers = customerFactory.getAllcustomers().then(
+	$scope.getCustomerList = customerFactory.getCustomerList().then(
 			function(success){
 				$scope.customerList = success.data;
 				console.log("Success retrieving CustomerList");
@@ -18,7 +18,7 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 	);
 	
 	//Gets The List of vehicles.
-	$scope.getAllVehicles = vehicleFactory.getAllVehicle().then(
+	$scope.getVehicleList = vehicleFactory.getVehicleList().then(
 			function(success){
 				$scope.vehicleList = success.data;
 				console.log("Success retrieving VehicleList");
@@ -30,7 +30,7 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 	);
 	
 	//Gets The List of passes.
-	$scope.getAllPasses = passFactory.getAllPasses().then(
+	$scope.getPassList = passFactory.getPassList().then(
 			function(success){
 				$scope.passList = success.data;
 				console.log("Success retrieving PassList");

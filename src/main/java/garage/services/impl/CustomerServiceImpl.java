@@ -27,12 +27,12 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public List<Customer> getCustomerList() {
 		List<Customer> customer = customerDao.getCustomerList();
-		List<Customer> allCustomer = new ArrayList<>();
+		List<Customer> allCustomers = new ArrayList<>();
 		
 		for (Customer e : customer) {
-			allCustomer.add(e);
+			allCustomers.add(e);
 		}
-		return allCustomer;
+		return allCustomers;
 	}
 
 	@Override

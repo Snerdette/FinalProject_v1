@@ -1,12 +1,11 @@
 package garage.dao;
 
 import java.util.List;
-
 import garage.entities.Pass;
 
 public interface PassDao {
 
-	List<Pass> getPassList();
+	public List<Pass> getPassList();
 
 	void deletePass(Integer passId);
 

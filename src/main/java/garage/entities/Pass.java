@@ -38,7 +38,7 @@ public class Pass {
 	
 	//List of Customers that this pass belongs to. Many passes can be held by a customer.
 	@ManyToOne(targetEntity=Customer.class)
-	public Customer customer;
+	public List<Customer> customer;
 	
 	//List of Vehicles this Pass Might belong to, a vehicle may have many passes especially if some are expire.
 	@ManyToMany(targetEntity=Vehicle.class)
@@ -89,14 +89,6 @@ public class Pass {
 		this.price = d;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
 	public List<Vehicle> getVehicle() {
 		return vehicle;
 	}
@@ -111,6 +103,14 @@ public class Pass {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public List<Customer> getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(List<Customer> customer) {
+		this.customer = customer;
 	}
 	
 }

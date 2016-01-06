@@ -7,7 +7,7 @@ import garage.entities.Customer;
 
 public interface CustomerDao {
 
-	List<Customer> getCustomerList();
+	public List<Customer> getCustomerList();
 
 	void deleteCustomer(Integer customerId);
 

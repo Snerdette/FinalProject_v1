@@ -16,6 +16,8 @@ import org.junit.Test;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import garage.dao.VehicleDao;
+import garage.entities.Make;
+import garage.entities.Model;
 import garage.entities.Vehicle;
 import garage.services.InvalidInputException;
 
@@ -94,8 +96,7 @@ public class VehicleServiceImplTest {
 		vehicle.setColor("Red");
 		vehicle.setPlateNumber("testPlateNumber");
 		vehicle.setPlateState("OR");
-		vehicle.setMake("Ford");
-		vehicle.setModel("Escort GT");
+
 		
 		target.addVehicle(vehicle);
 		verify(mockEm, times(1)).addVehicle(vehicle);

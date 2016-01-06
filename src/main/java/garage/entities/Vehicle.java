@@ -18,11 +18,17 @@ public class Vehicle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public  Integer id;
 	
+	@ManyToMany(targetEntity=Make.class)
 	@Column(name="make")
-	public String make;
+	public List<Make> make;
 	
+	@ManyToMany(targetEntity=Model.class)
 	@Column(name="model")
-	public String model;
+	public List<Model> model;
+	
+	@ManyToMany(targetEntity=Pass.class)
+	@Column(name="pass")
+	public List<Pass> pass;
 	
 	@Column(name="year")
 	public int year;
@@ -35,10 +41,6 @@ public class Vehicle {
 	
 	@Column(name="plate_state")
 	private String plateState;
-	
-	@ManyToMany(targetEntity=Pass.class)
-	@Column(name="pass")
-	public List<Pass> pass;
 
 	public Integer getId() {
 		return id;
@@ -64,19 +66,19 @@ public class Vehicle {
 		this.plateState = plateState;
 	}
 
-	public String getMake() {
+	public List<Make> getMake() {
 		return make;
 	}
 
-	public void setMake(String make) {
+	public void setMake(List<Make> make) {
 		this.make = make;
 	}
 
-	public String getModel() {
+	public List<Model> getModel() {
 		return model;
 	}
 
-	public void setModel(String model) {
+	public void setModel(List<Model> model) {
 		this.model = model;
 	}
 

@@ -7,7 +7,7 @@ import garage.entities.Vehicle;
 public interface VehicleDao {
 
 
-	List<Vehicle> getVehicleList();
+	public List<Vehicle> getVehicleList();
 
 	void deleteVehicle(Integer vehicleId);
 

@@ -6,7 +6,7 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 	
 	
 	//Gets The List of vehicles.
-	$scope.getAllVehicles = vehicleFactory.getAllVehicle().then(
+	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(
 			function(success){
 				$scope.vehicleList = success.data;
 				console.log("Success retrieving VehicleList");

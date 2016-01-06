@@ -1,10 +1,13 @@
 package garage.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,9 @@ public class Vehicle {
 	@Column(name="model")
 	public String model;
 	
+	@Column(name="year")
+	public int year;
+	
 	@Column(name="color")
 	private String color;
 	
@@ -29,6 +35,10 @@ public class Vehicle {
 	
 	@Column(name="plate_state")
 	private String plateState;
+	
+	@ManyToMany(targetEntity=Pass.class)
+	@Column(name="pass")
+	public List<Pass> pass;
 
 	public Integer getId() {
 		return id;
@@ -77,6 +87,24 @@ public class Vehicle {
 	public void setColor(String color) {
 		this.color = color;
 	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public List<Pass> getPass() {
+		return pass;
+	}
+
+	public void setPass(List<Pass> pass) {
+		this.pass = pass;
+	}
+	
+	
 	
 	//not in requirements to have a Vehicle belong to a customer, but should recommend some type of link.
 /*	@OneToOne(targetEntity=Customer.class)

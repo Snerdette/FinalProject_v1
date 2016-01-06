@@ -1,5 +1,12 @@
-<div ng-app="myApp">
-	<div class="container-fluid">
-	
+<div class="displayBox" ng-app="myApp">
+	<div class="container-fluid" ng-controller="vehicleController as vehicle" id="vehicleContent" >
+	Vehicle: 
+		<div ng-repeat="vehicle in vehicle.list" class="displayVehicle row col-md-8">		
+			ID: {{vehicle.id}}, 
+			Make: {{vehicle.expDate}}
+			Model: {{vehicle.customer}}
+			Color: {{vehicle.vehicle}}
+			Year: {{vehicle.year}}
+		</div>
 	</div>
-</div>
+</div>>

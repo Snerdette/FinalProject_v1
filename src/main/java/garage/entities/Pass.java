@@ -37,14 +37,13 @@ public class Pass {
 	private double price;
 	
 	//List of Customers that this pass belongs to. Many passes can be held by a customer.
-	@OneToMany(targetEntity=Customer.class)
-	@Column(name="customers")
-	public List<Customer> customers;
+	@ManyToOne(targetEntity=Customer.class)
+	public Customer customer;
 	
 	//List of Vehicles this Pass Might belong to, a vehicle may have many passes especially if some are expire.
-	@OneToMany(targetEntity=Vehicle.class)
-	@Column(name="vehicles")
-	public List<Vehicle> vehicles;
+	@ManyToMany(targetEntity=Vehicle.class)
+	@Column(name="vehicle")
+	public List<Vehicle> vehicle;
 	
 	//Type of a pass is referencing if it is a work day, weekend, annual, monthly or day pass.
 	@Column(name="type")
@@ -90,20 +89,20 @@ public class Pass {
 		this.price = d;
 	}
 
-	public List<Customer> getCustomers() {
-		return customers;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setCustomers(List<Customer> customers) {
-		this.customers = customers;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
-	public List<Vehicle> getVehicles() {
-		return vehicles;
+	public List<Vehicle> getVehicle() {
+		return vehicle;
 	}
 
-	public void setVehicles(List<Vehicle> vehicles) {
-		this.vehicles = vehicles;
+	public void setVehicle(List<Vehicle> vehicle) {
+		this.vehicle = vehicle;
 	}
 
 	public String getType() {

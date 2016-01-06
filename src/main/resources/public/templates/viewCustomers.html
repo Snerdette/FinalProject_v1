@@ -2,7 +2,9 @@
 	<div class="container-fluid" ng-controller="customerController as customer" id="customerContent" >
 	Customers: 
 		<div ng-repeat="customer in customer.list" class="displayCustomer row col-md-8">		
-			{{customer.lastName}}, {{customer.firstName}}
+			Name: {{customer.lastName}}, {{customer.firstName}}
+			Phone: {{customer.phone}}
+			Email: {{customer.email}}
 		</div>
 	</div>
 </div>

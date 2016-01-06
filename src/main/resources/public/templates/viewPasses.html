@@ -1,5 +1,11 @@
-<div ng-app="myApp">
-	<div class="container-fluid">
-	
+<div class="displayBox" ng-app="myApp">
+	<div class="container-fluid" ng-controller="passController as pass" id="passContent" >
+	Passes: 
+		<div ng-repeat="pass in pass.list" class="displayPass row col-md-8">		
+			ID: {{pass.id}}, 
+			Expiration Date: {{pass.expDate}}
+			Customer: {{pass.customer}}
+			Vehicle: {{pass.vehicle}}
+		</div>
 	</div>
 </div>

@@ -41,7 +41,7 @@ public class VehicleController {
 	
 	@RequestMapping(value="/vehicle/{id}", method=RequestMethod.PUT)
 	public void updateVehicle(@PathVariable Integer id, @RequestBody Vehicle vehicle){ 
-		vehicle.setId(id);
+		vehicle.setVehicleId(id);
 		vehicleService.updateVehicle(vehicle);
 	}
 	

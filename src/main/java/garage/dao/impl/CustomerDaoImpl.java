@@ -24,7 +24,7 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 	@Override
 	public List<Customer> getCustomerList() {
-		return em.createQuery("SELECT t FROM Customer t", Customer.class)
+		return em.createQuery("SELECT t FROM customer t", Customer.class)
 				.getResultList();
 	}
 	
@@ -41,20 +41,20 @@ public class CustomerDaoImpl implements CustomerDao{
 	//need to grab list of powers from linking table Customer_Power where Customer.id = Customer_Power.customerId
 	@Override
 	public Customer getCustomerById(Integer customerId) {
-		return em.createQuery("SELECT e FROM Customer e WHERE e.id = :id", Customer.class)
+		return em.createQuery("SELECT e FROM customer e WHERE e.customer_id = :id", Customer.class)
 				.setParameter("id", customerId)
 				.getSingleResult();
 	}
 
 	@Override
-	public void deleteCustomer(Integer customerId) {
-		em.merge(customerId);	
+	public void deleteCustomer(Customer customer) {
+		em.merge(customer);	
 	}
 	
-	/*@Override
-	public void deleteCustomerById(Integer customerId) {
+	@Override
+	public void deleteCustomer(Integer customerId) {
 		Customer customer = getCustomerById(customerId);
 		em.remove(customer);
-	}*/
+	}
 
 }

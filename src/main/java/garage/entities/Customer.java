@@ -1,19 +1,24 @@
 package garage.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="Customer", schema="public")
+@Entity(name="customer")
+/*@Table(name="customer", schema="public")*/
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public  Integer id;
+	@Column(name="customer_id")
+	public  Integer customerId;
 	
 	@Column(name="first_name")
 	public String firstName;
@@ -24,15 +29,15 @@ public class Customer {
 	@Column(name="email", unique=true)
 	public String email;
 	
-	@Column(name="phone")
+	@Column(name="phone", length=10)
 	public String phone;
 
-	public Integer getId() {
-		return id;
+	public Integer getCustomerId() {
+		return customerId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getFirstName() {
@@ -67,5 +72,4 @@ public class Customer {
 		this.phone = phone;
 	}
 	
-
 }

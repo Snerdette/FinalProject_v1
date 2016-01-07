@@ -2,10 +2,10 @@
 	<div class="container-fluid" ng-controller="passController as pass" id="passContent" >
 	Passes: 
 		<div ng-repeat="pass in passList" class="displayPass row col-md-8">		
-			ID: {{pass.id}}, 
-			Expiration Date: {{pass.expDate}}
-			Customer: {{pass.customer}}
-			Vehicle: {{pass.vehicle}}
+			<h3>ID:</h3> <h4>{{pass.passId}}</h4><br> 
+			<h3>Expiration Date:</h3> <h4>{{pass.expDate}}</h4><br> 
+			<h3>Customer:</h3> <h4>{{pass.customer}}</h4><br> 
+			<h3>Vehicle:</h3> <h4>{{pass.vehicle}}</h4><br> 
 		</div>
 	</div>
 </div>

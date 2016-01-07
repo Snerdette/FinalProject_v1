@@ -24,7 +24,7 @@ public class PassDaoImpl implements PassDao{
 	
 	@Override
 	public List<Pass> getPassList() {
-		return em.createQuery("SELECT t FROM Pass t", Pass.class)
+		return em.createQuery("SELECT t FROM pass t", Pass.class)
 				.getResultList();
 	}
 	
@@ -41,7 +41,7 @@ public class PassDaoImpl implements PassDao{
 	//need to grab list of powers from linking table Pass_Power where Pass.id = Pass_Power.passId
 	@Override
 	public Pass getPassById(Integer passId) {
-		return em.createQuery("SELECT e FROM Pass e WHERE e.id = :id", Pass.class)
+		return em.createQuery("SELECT e FROM pass e WHERE e.pass_id = :id", Pass.class)
 				.setParameter("id", passId)
 				.getSingleResult();
 	}

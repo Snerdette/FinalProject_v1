@@ -1,36 +1,29 @@
 package garage.entities;
 
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Entity
-@Table(name="Vehicle", schema="public")
+@Entity(name="vehicle")
+/*@Table(name="vehicle", schema="public")*/
 public class Vehicle {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public  Integer id;
+	@Column(name="vehicle_id")
+	public  Integer vehicleId;
 	
-	@ManyToMany(targetEntity=Make.class)
-	@Column(name="make")
-	public List<Make> make;
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+	@JoinColumn(name="model_id")
+	public Model model;
 	
-	@ManyToMany(targetEntity=Model.class)
-	@Column(name="model")
-	public List<Model> model;
-	
-	@ManyToMany(targetEntity=Pass.class)
-	@Column(name="pass")
-	public List<Pass> pass;
-	
-	@Column(name="year")
+	@Column(name="year", length=4)
 	public int year;
 	
 	@Column(name="color")
@@ -42,12 +35,12 @@ public class Vehicle {
 	@Column(name="plate_state")
 	private String plateState;
 
-	public Integer getId() {
-		return id;
+	public Integer getVehicleId() {
+		return vehicleId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setVehicleId(Integer vehicleId) {
+		this.vehicleId = vehicleId;
 	}
 
 	public String getPlateNumber() {
@@ -66,19 +59,11 @@ public class Vehicle {
 		this.plateState = plateState;
 	}
 
-	public List<Make> getMake() {
-		return make;
-	}
-
-	public void setMake(List<Make> make) {
-		this.make = make;
-	}
-
-	public List<Model> getModel() {
+	public Model getModel() {
 		return model;
 	}
 
-	public void setModel(List<Model> model) {
+	public void setModel(Model model) {
 		this.model = model;
 	}
 
@@ -97,21 +82,5 @@ public class Vehicle {
 	public void setYear(int year) {
 		this.year = year;
 	}
-
-	public List<Pass> getPass() {
-		return pass;
-	}
-
-	public void setPass(List<Pass> pass) {
-		this.pass = pass;
-	}
-	
-	
-	
-	//not in requirements to have a Vehicle belong to a customer, but should recommend some type of link.
-/*	@OneToOne(targetEntity=Customer.class)
-	@Column(name="customers")
-	public List<Customer> customers;*/
-	
 	
 }

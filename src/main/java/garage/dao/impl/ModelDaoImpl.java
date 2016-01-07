@@ -24,14 +24,14 @@ public class ModelDaoImpl implements ModelDao{
 	
 	@Override
 	public List<Model> getModelList() {
-		return em.createQuery("SELECT t FROM Model t", Model.class)
+		return em.createQuery("SELECT t FROM model t", Model.class)
 				.getResultList();
 	}
 	
 	//need to grab list of powers from linking table Model_Power where Model.id = Model_Power.modelId
 	@Override
 	public Model getModelById(Integer modelId) {
-		return em.createQuery("SELECT e FROM Model e WHERE e.id = :id", Model.class)
+		return em.createQuery("SELECT e FROM model e WHERE e.model_id = :id", Model.class)
 				.setParameter("id", modelId)
 				.getSingleResult();
 	}

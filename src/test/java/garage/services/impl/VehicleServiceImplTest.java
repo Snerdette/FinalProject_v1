@@ -74,7 +74,7 @@ public class VehicleServiceImplTest {
 	public void testGetVehicleObjectByNullIdSadPath(){
 		target.setVehicleDao(mockEm);
 		Vehicle expected = new Vehicle();
-		expected.setId(null);
+		expected.setVehicleId(null);
 		when(mockEm.getVehicleById(anyInt())).thenReturn(expected);
 		Vehicle actual = null;
 		
@@ -92,7 +92,7 @@ public class VehicleServiceImplTest {
 	@Test
 	public void testAddVehicleObject(){
 		Vehicle vehicle = new Vehicle();
-		vehicle.setId(2);
+		vehicle.setVehicleId(2);
 		vehicle.setColor("Red");
 		vehicle.setPlateNumber("testPlateNumber");
 		vehicle.setPlateState("OR");
@@ -118,7 +118,7 @@ public class VehicleServiceImplTest {
 	@Test
 	public void testDeletingVehicleObjectById() throws InvalidInputException{
 		Vehicle vehicle = new Vehicle();
-		vehicle.setId(2);
+		vehicle.setVehicleId(2);
 		target.deleteVehicle(2);
 		
 		boolean result = false;
@@ -135,7 +135,7 @@ public class VehicleServiceImplTest {
 	@Test
 	public void testAddingVehicleWithNullIdSadPath() {
 		Vehicle vehicle = new Vehicle();
-		vehicle.setId(null);
+		vehicle.setVehicleId(null);
 		
 		boolean result = false;
 		try {

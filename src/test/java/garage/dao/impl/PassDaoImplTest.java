@@ -62,11 +62,11 @@ public class PassDaoImplTest {
 		public void testRemovePassByIdFromDatabase(){
 			Pass pass = new Pass();
 			boolean result = true;
-			pass.setId(2);
+			pass.setPassId(2);
 			target.addPass(pass);
-			target.deletePass(pass.id);
+			target.deletePass(pass.passId);
 			try{
-				pass.getId();
+				pass.getPassId();
 				result = false;
 			}catch(NullPointerException npe){
 				result = true;

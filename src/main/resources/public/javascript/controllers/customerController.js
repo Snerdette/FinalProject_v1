@@ -3,6 +3,8 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'c
 	$scope.customer = {};
 	var isValid = true;
 	$scope.customerEditData = {};
+	$scope.isEditing = false;
+	$scope.customerList = [];
 
 	
 	//Gets The List of customers.
@@ -38,6 +40,11 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'c
 		}	
 	};
 	
+	//Grabbing Customer Data for Edit customer Page.
+	$scope.getCustomerData = function(customer){
+		$state.go("editCustomer", {customer: customer});
+	}
+	
 	//Deleting a customer.
 	$scope.deleteCustomer = function(customerId){
 		customerFactory.deleteCustomer(customerId).then(
@@ -53,9 +60,6 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'c
 		);
 	};
 	
-	//Grabbing Customer Data for Edit customer Page.
-	$scope.getCustomerData = function(customer){
-		$state.go("editCustomer", {customer: customer});
-	}
+
 
 }]);

@@ -1,26 +1,30 @@
 <div class="container-fluid" ng-app="myApp">
-	<div class="displaybox" ng-controller="vehicleController as vehicle">
+	<div class="displayBox" ng-controller="vehicleController as vehicle">
 		<div class="subheader">Register a vehicle</div>
 		<form class="form-horizontal" role="form" ng-submit="createVehicle(vehicle)">
 			<div class="form-group">
-			<div class="col-md-6">
-					<label class="control-label">Year: </label>
-					<input ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016" >		
+				<div class="col-md-3">
+					<label class="control-label">Year: </label> 
+					<input ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016">
 				</div>
 				<div class="col-md-3">
-					<label class="control-label">Make: </label>
+					<label class="control-label">Make: </label> 
 					<select ng-model="make" class="form-control" ng-options="make as make.make for make in makeList">
 					</select>
+				</div>
 				<div class="col-md-3">
-					<label class="control-label">Model: </label>
+					<label class="control-label">Model: </label> 
 					<select ng-model="model" class="form-control" ng-options="model as model.model for model in modelList">
 					</select>
-						
 				</div>
-					<div class="modal-footer">
-						<div class="col-md-3 col-md-offset-8 control-label">
-						<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
-							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true">Save</span>
+				<div class="col-md-3">
+					<label class="control-label">Color: </label> 
+					<input ng-model="vehicle.color" class="form-control" type="text">
+				</div>
+				<div class="modal-footer">
+					<div class="col-md-3 col-md-offset-8 control-label">
+						<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">Save
+								<!-- <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"><h5>Save</h5></span> -->
 						</button>
 					</div>
 				</div>

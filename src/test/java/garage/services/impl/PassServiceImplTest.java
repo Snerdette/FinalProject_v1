@@ -75,7 +75,7 @@ public class PassServiceImplTest {
 	public void testGetPassObjectByNullIdSadPath(){
 		target.setPassDao(mockEm);
 		Pass expected = new Pass();
-		expected.setId(null);
+		expected.setPassId(null);
 		when(mockEm.getPassById(anyInt())).thenReturn(expected);
 		Pass actual = null;
 		
@@ -93,7 +93,7 @@ public class PassServiceImplTest {
 	@Test
 	public void testAddPassObject(){
 		Pass pass = new Pass();
-		pass.setId(2);
+		pass.setPassId(2);
 		/*pass.setExpDate(mockEm.exDate);*/
 		pass.setActive(true);
 		pass.setPrice(99.99);
@@ -119,7 +119,7 @@ public class PassServiceImplTest {
 	@Test
 	public void testDeletingPassObjectById() throws InvalidInputException{
 		Pass pass = new Pass();
-		pass.setId(2);
+		pass.setPassId(2);
 		target.deletePass(2);
 		
 		boolean result = false;
@@ -136,7 +136,7 @@ public class PassServiceImplTest {
 	@Test
 	public void testAddingPassWithNullIdSadPath() {
 		Pass pass = new Pass();
-		pass.setId(null);
+		pass.setPassId(null);
 		
 		boolean result = false;
 		try {

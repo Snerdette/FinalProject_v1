@@ -24,7 +24,7 @@ public class VehicleDaoImpl implements VehicleDao {
 	
 	@Override
 	public List<Vehicle> getVehicleList() {
-		return em.createQuery("SELECT t FROM Vehicle t", Vehicle.class)
+		return em.createQuery("SELECT t FROM vehicle t", Vehicle.class)
 				.getResultList();
 	}
 	
@@ -41,7 +41,7 @@ public class VehicleDaoImpl implements VehicleDao {
 	//need to grab list of powers from linking table Vehicle_Power where Vehicle.id = Vehicle_Power.vehicleId
 	@Override
 	public Vehicle getVehicleById(Integer vehicleId) {
-		return em.createQuery("SELECT e FROM Vehicle e WHERE e.id = :id", Vehicle.class)
+		return em.createQuery("SELECT e FROM vehicle e WHERE e.vehicle_id = :id", Vehicle.class)
 				.setParameter("id", vehicleId)
 				.getSingleResult();
 	}

@@ -60,7 +60,7 @@
 		};
 		$stateProvider.state(createPass);
 		
-		// Create a Customer.
+		// Create a Vehicle.
 		var createVehicle = {
 			name : 'createVehicle',
 			url : '/createVehicle',

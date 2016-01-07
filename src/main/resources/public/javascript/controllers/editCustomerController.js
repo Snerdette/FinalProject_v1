@@ -21,7 +21,7 @@ angular.module('myApp').controller('editCustomerController', ['$scope', '$state'
 				function(success){
 					$scope.updateCustomerResult = success.data;
 					console.log("success updating Customer");
-					$state.go("dashboard");
+					$state.go("viewCustomers");
 				},
 				function(error){
 					$scope.updateCustomerResult = error;

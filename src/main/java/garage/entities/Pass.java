@@ -8,49 +8,59 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 
-@Entity
-@Table(name="Pass", schema="public")
+@Entity(name="pass")
+/*@Table(name="pass", schema="public")*/
 public class Pass {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public  Integer id;
+	@Column(name="pass_id")
+	public  Integer passId;
 	
 	@Column(name="is_active")
 	private boolean isActive;
 	
 	//Date formatting should be MM/DD/YYYY.
-	@Column(name="expDate")
-	private Date expDate;
+	@Column(name="exp_date", columnDefinition="DATE")
+	@JsonFormat(pattern = "MM/dd/yyyy", timezone="PST")
+	private Date expDate = new Date();;
 	
 	//hoping to figure out MonetaryAmount Later.
 	@Column(name="price")
 	private double price;
 	
 	//List of Customers that this pass belongs to. Many passes can be held by a customer.
-	@ManyToOne(targetEntity=Customer.class)
-	public List<Customer> customer;
+	@ManyToOne
+	@JoinColumn(name="customer_id")
+	public Customer customer;
 	
 	//List of Vehicles this Pass Might belong to, a vehicle may have many passes especially if some are expire.
-	@ManyToMany(targetEntity=Vehicle.class)
-	@Column(name="vehicle")
-	public List<Vehicle> vehicle;
+	@OneToOne
+	@JoinColumn(name="vehicle_id")
+	public Vehicle vehicle;
 	
 	//Type of a pass is referencing if it is a work day, weekend, annual, monthly or day pass.
 	@Column(name="type")
 	private String type;
 
-	public Integer getId() {
-		return id;
+	public Integer getPassId() {
+		return passId;
+	}
+	
+	public void setPassId(Integer passId) {
+		this.passId = passId;
 	}
 
 	public boolean isActive() {
@@ -59,10 +69,6 @@ public class Pass {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public boolean isIsActive() {
@@ -85,15 +91,15 @@ public class Pass {
 		return price;
 	}
 
-	public void setPrice(double d) {
-		this.price = d;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public List<Vehicle> getVehicle() {
+	public Vehicle getVehicle() {
 		return vehicle;
 	}
 
-	public void setVehicle(List<Vehicle> vehicle) {
+	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
 
@@ -105,11 +111,11 @@ public class Pass {
 		this.type = type;
 	}
 
-	public List<Customer> getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(List<Customer> customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 	

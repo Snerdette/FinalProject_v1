@@ -73,7 +73,7 @@ public class CustomerServiceImplTest {
 	public void testGetCustomerObjectByNullIdSadPath(){
 		target.setCustomerDao(mockEm);
 		Customer expected = new Customer();
-		expected.setId(null);
+		expected.setCustomerId(null);
 		when(mockEm.getCustomerById(anyInt())).thenReturn(expected);
 		Customer actual = null;
 		
@@ -91,7 +91,7 @@ public class CustomerServiceImplTest {
 	@Test
 	public void testAddCustomerObject(){
 		Customer customer = new Customer();
-		customer.setId(2);
+		customer.setCustomerId(2);
 		customer.setFirstName("testFirst");
 		customer.setLastName("testLast");
 		customer.setEmail("test@Email.com");
@@ -117,7 +117,7 @@ public class CustomerServiceImplTest {
 	@Test
 	public void testDeletingCustomerObjectById() throws InvalidInputException{
 		Customer customer = new Customer();
-		customer.setId(2);
+		customer.setCustomerId(2);
 		target.deleteCustomer(2);
 		
 		boolean result = false;
@@ -134,7 +134,7 @@ public class CustomerServiceImplTest {
 	@Test
 	public void testAddingCustomerWithNullIdSadPath() {
 		Customer customer = new Customer();
-		customer.setId(null);
+		customer.setCustomerId(null);
 		
 		boolean result = false;
 		try {

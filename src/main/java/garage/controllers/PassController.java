@@ -41,7 +41,7 @@ public class PassController {
 	
 	@RequestMapping(value="/pass/{id}", method=RequestMethod.PUT)
 	public void updatePass(@PathVariable Integer id, @RequestBody Pass pass){ 
-		pass.setId(id);
+		pass.setPassId(id);
 		passService.updatePass(pass);
 	}
 	

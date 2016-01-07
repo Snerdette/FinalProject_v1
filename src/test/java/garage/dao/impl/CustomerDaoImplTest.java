@@ -63,11 +63,11 @@ public class CustomerDaoImplTest {
 		public void testRemoveCustomerByIdFromDatabase(){
 			Customer customer = new Customer();
 			boolean result = true;
-			customer.setId(2);
+			customer.setCustomerId(2);
 			target.addCustomer(customer);
-			target.deleteCustomer(customer.id);
+			target.deleteCustomer(customer.customerId);
 			try{
-				customer.getId();
+				customer.getCustomerId();
 				result = false;
 			}catch(NullPointerException npe){
 				result = true;

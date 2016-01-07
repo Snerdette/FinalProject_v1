@@ -84,5 +84,7 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 	$scope.getVehicleData = function(vehicle){
 		$state.go("editVehicle", {vehicle: vehicle});
 	}
+	
+	
 
 }]);

@@ -63,11 +63,11 @@ public class VehicleDaoImplTest {
 		public void testRemoveVehicleByIdFromDatabase(){
 			Vehicle vehicle = new Vehicle();
 			boolean result = true;
-			vehicle.setId(2);
+			vehicle.setVehicleId(2);
 			target.addVehicle(vehicle);
-			target.deleteVehicle(vehicle.id);
+			target.deleteVehicle(vehicle.vehicleId);
 			try{
-				vehicle.getId();
+				vehicle.getVehicleId();
 				result = false;
 			}catch(NullPointerException npe){
 				result = true;

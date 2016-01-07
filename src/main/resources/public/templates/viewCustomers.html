@@ -1,10 +1,13 @@
 <div class="displayBox" ng-app="myApp">
-	<div class="container-fluid" ng-controller="customerController as customer" id="customerContent" >
+	<div id="customers_content" class="container-fluid" ng-controller="customerController as customer">
 	Customers: 
-		<div ng-repeat="customer in customerList" class="displayCustomer row col-md-8">		
+		<div ng-repeat="customer in customerList" class="displayCustomer row col-md-8">	
+			<button type="submit" data-ng-click="deleteCustomer(customer.id)">Delete Customer</button>
+			<button type="button" data-ng-click="getCustomerData(customer.id)">Edit Customer</button>	
 			Name: {{customer.lastName}}, {{customer.firstName}}
 			Phone: {{customer.phone}}
 			Email: {{customer.email}}
+			
 		</div>
 	</div>
 </div>

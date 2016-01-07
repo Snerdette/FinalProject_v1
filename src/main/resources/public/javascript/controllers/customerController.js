@@ -1,12 +1,13 @@
-angular.module('myApp', ['ui.mask']).controller('customerController', ['$scope', '$state', 'customerFactory', function($scope, $state, customerFactory){
+angular.module('myApp').controller('customerController', ['$scope', '$state', 'customerFactory', function($scope, $state, customerFactory){
 	
-	$scope.mask1 = '(999) 999-9999';
+	/*, ['ui.mask']*/
+	/*$scope.mask1 = '(999) 999-9999';*/
 	$scope.customer = {};
 	var isValid = true;
 	$scope.customerEditData = {};
 	$scope.isEditing = false;
 	$scope.customerList = [];
-	var uiMask = require('angular-ui-mask');
+	/*var uiMask = require('angular-ui-mask');*/
 
 	
 	//Gets The List of customers.
@@ -61,7 +62,5 @@ angular.module('myApp', ['ui.mask']).controller('customerController', ['$scope',
 				}
 		);
 	};
-	
-
 
 }]);

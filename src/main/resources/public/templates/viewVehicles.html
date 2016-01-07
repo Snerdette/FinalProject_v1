@@ -2,8 +2,8 @@
 	<div class="container-fluid" ng-controller="vehicleController as vehicle" id="vehicleContent" >
 	Vehicle: 
 		<div ng-repeat="vehicle in vehicleList" class="displayVehicle row col-md-8">
-			<button type="submit" data-ng-click="deleteVehicle(vehicle.id)">delete Hero</button>
-			<button type="button" data-ng-click="getVehicleData(vehicle.id)">Edit Hero</button>		
+			<button type="submit" data-ng-click="deleteVehicle(vehicle.id)">Delete Vehicle</button>
+			<button type="button" data-ng-click="getVehicleData(vehicle.id)">Edit Vehicle</button>		
 			ID: {{vehicle.id}}, 
 			Make: {{vehicle.expDate}}
 			Model: {{vehicle.customer}}

@@ -6,10 +6,12 @@
 				<div class="col-md-3">
 					<label class="control-label">First Name:</label><br>
 					<input type="text" ng-model="customer.firstName" required>
+					<span ng-show="frm.customer.firstName.$dirty && frm.customer.firstName.$error.required">Last Name is Required!</span>
 				</div>
 				<div class="col-md-3">
 					<label class="control-label">Last Name:</label><br>
 					<input type="text" ng-model="customer.lastName" required>
+					<span ng-show="frm.customer.lastName.$dirty && frm.customer.lastName.$error.required">Last Name is Required!</span>
 				</div>
 				<div class="col-md-3">
 					<label class="control-label">Email:</label><br>
@@ -19,9 +21,8 @@
 				</div>
 				<div class="col-md-3">
 					<label class="control-label">Phone:</label><br>
-					<!-- <input type="text" ng-model="customer.phone" ui-mask="(999) 999-9999" ui-mask-placeholder ui-mask placeholder-char="_"/> -->
-					<!-- 	<input class="input-phone" type='text' phone-input ng-model="phoneVal"/> -->
-					<input type="text" ng-model="customer.phone" ui-mask="(999) 999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_" required/>
+					<p><input ng-model="phone" ui-mask="{{mask1}}"/></p>
+					<p>{{phone}}
 
 				</div>
 				<div class="modal-footer">

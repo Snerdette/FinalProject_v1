@@ -1,7 +1,9 @@
 <div class="displayBox" ng-app="myApp">
 	<div class="container-fluid" ng-controller="passController as pass" id="passContent" >
 	Passes: 
-		<div ng-repeat="pass in passList" class="displayPass row col-md-8">		
+		<div ng-repeat="pass in passList" class="displayPass row col-md-8">	
+			<button type="submit" data-ng-click="deletePass(pass.id)">delete Pass</button>
+			<button type="button" data-ng-click="getPassData(pass.id)">Edit Pass</button>			
 			<h3>ID:</h3> <h4>{{pass.passId}}</h4><br> 
 			<h3>Expiration Date:</h3> <h4>{{pass.expDate}}</h4><br> 
 			<h3>Customer:</h3> <h4>{{pass.customer}}</h4><br> 

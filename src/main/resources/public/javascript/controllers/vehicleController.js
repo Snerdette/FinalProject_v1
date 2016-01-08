@@ -1,11 +1,14 @@
-angular.module('myApp').controller('vehicleController', ['$scope', '$state', 'vehicleFactory', 'makeFactory', 'modelFactory', function($scope, $state, vehicleFactory, makeFactory, modelFactory){
+angular.module('myApp').controller('vehicleController', 
+		['$scope', '$state', 'vehicleFactory', 'makeFactory', 'modelFactory', function($scope, $state, vehicleFactory, makeFactory, modelFactory){
 	
 	$scope.vehicle = {};
+	$scope.make = {};
 	var isValid = true;
 	$scope.vehicleList = [];
 	$scope.vehicleEditData = {};
 	$scope.makeList = [];
 	$scope.modelList = [];
+	$scope.vehicleModelList = [];
 	
 	//Gets The Data of vehicles.
 	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(
@@ -19,7 +22,20 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 			}
 	);
 	
-	//Gets Model Data
+	$scope.onChange = function(makeId){
+		console.log(makeId);
+		modelFactory.getVehicleModelList(makeId).then(
+				function(success){
+					$scope.vehicleModelList = success.data;
+					console.log("Success retrieving vehicleModelList" + vehicleModelList);
+				},
+				function(error){
+					$scope.vehicleModelList = error;
+					console.log("Error retrieving models for make" + makeId);
+				})
+		
+	}
+	/*//Gets Model Data
 	$scope.getAllModels = modelFactory.getAllModels().then(
 			function(success){
 				$scope.modelList = success.data;
@@ -29,7 +45,7 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 				$scope.modelList = error;
 				console.log("Error retrieving ModelList");
 			}
-	);
+	);*/
 	
 	//Gets Make Data
 	$scope.getAllMakes = makeFactory.getAllMakes().then(
@@ -46,8 +62,8 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 	//Creating a Vehicle.
 	$scope.createVehicle = function(vehicle){
 		if(isValid){
-			vehicle.make = $scope.vehicle.make;
-			vehicle.model = $scope.vehicle.model;
+			/*vehicle.make = $scope.vehicle.make;*/
+			vehicle.model = $scope.make.model;
 			vehicle.color = $scope.vehicle.color;
 			vehicle.plateNumber = $scope.vehicle.plateNumber;
 			vehicle.plateState = $scope.vehicle.plateState;

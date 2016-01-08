@@ -23,7 +23,7 @@ angular.module('myApp').controller('editVehicleController',
 		);
 	};
 	
-	/*//Gets Model List
+	//Gets Model List
 	$scope.getAllModels = modelFactory.getAllModels().then(
 			function(success){
 				$scope.modelList = success.data;
@@ -33,9 +33,9 @@ angular.module('myApp').controller('editVehicleController',
 				$scope.modelList = error;
 				console.log("Error retrieving ModelList");
 			}
-	);*/
+	);
 	
-	/*//Gets Make List
+	//Gets Make List
 	$scope.getAllMakes = makeFactory.getAllMakes().then(
 			function(success){
 				$scope.makeList = success.data;
@@ -45,7 +45,7 @@ angular.module('myApp').controller('editVehicleController',
 				$scope.makeList = error;
 				console.log("Error retrieving MakeList");
 			}
-	);*/
+	);
 	
 	//Gets The Data of vehicles.
 	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(

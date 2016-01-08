@@ -4,8 +4,11 @@ angular.module('myApp').factory('modelFactory', ['$http', function($http){
 		getAllModels: function(model){
 			return $http.get('model');
 		},
-		getMake: function(make){
-			return $http.get('/make/' + make)
+		getModel: function(model){
+			return $http.get('/model/' + model);
+		},
+		getVehicleModelList: function(makeId){
+			return $http.get('/model/make_id' + makeId);
 		}
 	}
 }])

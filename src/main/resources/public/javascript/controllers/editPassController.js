@@ -3,7 +3,7 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 	$scope.pass = aPass.data;
 	$scope.customerList = [];
 	$scope.vehicleList = [];
-	$scope.passList = [];
+	/*$scope.passList = [];*/
 	$scope.isEditing = false;
 	var isValid = true;
 	
@@ -22,7 +22,7 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 		);
 	};
 	
-	/*//Gets The List of customers.
+	//Gets The List of customers.
 	$scope.getAllCustomers = customerFactory.getAllCustomers().then(
 			function(success){
 				$scope.customerList = success.data;
@@ -46,7 +46,7 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 			}
 	);
 	
-	//Gets The List of passes.
+	/*//Gets The List of passes.
 	$scope.getAllPasses = passFactory.getAllPasses().then(
 			function(success){
 				$scope.passList = success.data;

@@ -1,4 +1,5 @@
-angular.module('myApp').controller('editVehicleController', ['$scope', '$state', 'vehicleFactory', 'aVehicle',  function($scope, $state, vehicleFactory, aVehicle){
+angular.module('myApp').controller('editVehicleController',
+		['$scope', '$state', 'vehicleFactory', 'modelFactory', 'makeFactory' , 'aVehicle',  function($scope, $state, vehicleFactory, makeFactory, modelFactory, aVehicle){
 	
 	$scope.vehicle = aVehicle.data;
 	$scope.vehicleList = [];
@@ -22,7 +23,7 @@ angular.module('myApp').controller('editVehicleController', ['$scope', '$state',
 		);
 	};
 	
-/*	//Gets Model List
+	/*//Gets Model List
 	$scope.getAllModels = modelFactory.getAllModels().then(
 			function(success){
 				$scope.modelList = success.data;
@@ -34,7 +35,7 @@ angular.module('myApp').controller('editVehicleController', ['$scope', '$state',
 			}
 	);*/
 	
-/*	//Gets Make List
+	/*//Gets Make List
 	$scope.getAllMakes = makeFactory.getAllMakes().then(
 			function(success){
 				$scope.makeList = success.data;
@@ -46,7 +47,7 @@ angular.module('myApp').controller('editVehicleController', ['$scope', '$state',
 			}
 	);*/
 	
-/*	//Gets The Data of vehicles.
+	//Gets The Data of vehicles.
 	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(
 			function(success){
 				$scope.vehicleList = success.data;
@@ -56,6 +57,6 @@ angular.module('myApp').controller('editVehicleController', ['$scope', '$state',
 				$scope.vehicleList = error;
 				console.log("Error retrieving VehicleList");
 			}
-	);*/
+	);
 	
 }]);

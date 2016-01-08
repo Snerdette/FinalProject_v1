@@ -4,15 +4,17 @@ import java.util.List;
 import garage.entities.Customer;
 
 public interface CustomerService {
+	
+	public List<Customer> getCustomerData();
 
-	Customer getCustomerById(Integer customerId) throws InvalidInputException;
+	Customer getCustomer(Integer customerId)throws InvalidInputException;
 	
-	public List<Customer> getCustomerList();
+	public void add(Customer customer);
 	
-	public void addCustomer(Customer customer);
+	public void update(Customer customer);
 	
-	public void updateCustomer(Customer customer);
+	public void delete(Integer customerId);	
 	
-	public void deleteCustomer(Integer customerId);	
+	/*public void delete(Customer customer);	*/
 	
 }

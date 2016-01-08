@@ -23,37 +23,37 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 	
 	@Override
-	public List<Customer> getCustomerList() {
+	public List<Customer> getCustomerData() {
 		return em.createQuery("SELECT t FROM customer t", Customer.class)
 				.getResultList();
 	}
 	
 	@Override
-	public void addCustomer(Customer customer) {
+	public void add(Customer customer) {
 		em.persist(customer);
 	}
 	
 	@Override
-	public void updateCustomer(Customer customer) {
+	public void update(Customer customer) {
 		em.merge(customer);
 	}
 	
 	//need to grab list of powers from linking table Customer_Power where Customer.id = Customer_Power.customerId
 	@Override
-	public Customer getCustomerById(Integer customerId) {
-		return em.createQuery("SELECT e FROM customer e WHERE e.customer_id = :id", Customer.class)
+	public Customer getCustomer(Integer customerId) {
+		return em.createQuery("SELECT e FROM customer e WHERE e.id = :id", Customer.class)
 				.setParameter("id", customerId)
 				.getSingleResult();
 	}
 
 	@Override
-	public void deleteCustomer(Customer customer) {
+	public void delete(Customer customer) {
 		em.merge(customer);	
 	}
 	
 	@Override
-	public void deleteCustomer(Integer customerId) {
-		Customer customer = getCustomerById(customerId);
+	public void delete(Integer customerId) {
+		Customer customer = getCustomer(customerId);
 		em.remove(customer);
 	}
 

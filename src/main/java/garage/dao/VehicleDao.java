@@ -6,14 +6,15 @@ import garage.entities.Vehicle;
 
 public interface VehicleDao {
 
+	public List<Vehicle> getVehicleData();
 
-	public List<Vehicle> getVehicleList();
+	void add(Vehicle vehicle);
+	
+	void update(Vehicle vehicle);
 
-	void deleteVehicle(Integer vehicleId);
+	void delete(Integer vehicleId);
+	
+	void delete(Vehicle vehicle);
 
-	void updateVehicle(Vehicle vehicle);
-
-	void addVehicle(Vehicle vehicle);
-
-	public Vehicle getVehicleById(Integer vehicleId);
+	public Vehicle getVehicle(Integer vehicleId);
 }

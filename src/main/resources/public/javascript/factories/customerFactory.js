@@ -13,7 +13,7 @@ angular.module('myApp').factory('customerFactory', ['$http', function($http){
 		updateCustomer: function(customerId, customer){
 			return $http.put('/customer/' + customerId, customer);
 		},
-		getCustomerById: function(customer){
+		getCustomer: function(customer){
 			return $http.get('/customer/'+ customer);
 		}
 	}	

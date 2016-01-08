@@ -44,8 +44,8 @@ public class PassServiceImplTest {
 	public void testGetAllPasses(){
 		target.setPassDao(mockEm);
 		List<Pass> expected = new ArrayList<Pass>();
-		when(mockEm.getPassList()).thenReturn(expected);
-		List<Pass> actual = target.getPassList();
+		when(mockEm.getPassData()).thenReturn(expected);
+		List<Pass> actual = target.getPassData();
 		
 		assertEquals(expected, actual);
 	}
@@ -57,11 +57,11 @@ public class PassServiceImplTest {
 	public void testGetPassObjectById(){
 		target.setPassDao(mockEm);
 		Pass expected = new Pass();
-		when(mockEm.getPassById(anyInt())).thenReturn(expected);
+		when(mockEm.getPass(anyInt())).thenReturn(expected);
 		Pass actual = null;
 		
 		try {
-			actual = target.getPassById(3);
+			actual = target.getPass(3);
 		} catch (InvalidInputException e) {
 /*			e.printStackTrace();*/
 		}
@@ -75,12 +75,12 @@ public class PassServiceImplTest {
 	public void testGetPassObjectByNullIdSadPath(){
 		target.setPassDao(mockEm);
 		Pass expected = new Pass();
-		expected.setPassId(null);
-		when(mockEm.getPassById(anyInt())).thenReturn(expected);
+		expected.setId(null);
+		when(mockEm.getPass(anyInt())).thenReturn(expected);
 		Pass actual = null;
 		
 		try {
-			actual = target.getPassById(3);
+			actual = target.getPass(3);
 		} catch (InvalidInputException e) {
 /*			e.printStackTrace();*/
 		}
@@ -93,14 +93,14 @@ public class PassServiceImplTest {
 	@Test
 	public void testAddPassObject(){
 		Pass pass = new Pass();
-		pass.setPassId(2);
+		pass.setId(2);
 		/*pass.setExpDate(mockEm.exDate);*/
 		pass.setActive(true);
 		pass.setPrice(99.99);
 		pass.setType("Weekend");
 		
-		target.addPass(pass);
-		verify(mockEm, times(1)).addPass(pass);
+		target.add(pass);
+		verify(mockEm, times(1)).add(pass);
 	}
 	
 	/**
@@ -109,7 +109,7 @@ public class PassServiceImplTest {
 	@Test
 	public void testUpdatePassObjectHappy(){
 		Pass pass = new Pass();
-		target.updatePass(pass);	
+		target.update(pass);	
 	}
 	
 	/**
@@ -119,28 +119,28 @@ public class PassServiceImplTest {
 	@Test
 	public void testDeletingPassObjectById() throws InvalidInputException{
 		Pass pass = new Pass();
-		pass.setPassId(2);
-		target.deletePass(2);
+		pass.setId(2);
+		target.delete(2);
 		
 		boolean result = false;
 		try{
-			target.getPassById(2);
+			target.getPass(2);
 			result = false;
 		}catch (NullPointerException npe){
 			result = true;
 		}
-		verify(mockEm, times(1)).getPassById(2);
+		verify(mockEm, times(1)).getPass(2);
 	}
 	
 	//Need to try adding a pass with a null id
 	@Test
 	public void testAddingPassWithNullIdSadPath() {
 		Pass pass = new Pass();
-		pass.setPassId(null);
+		pass.setId(null);
 		
 		boolean result = false;
 		try {
-			target.getPassById(null);
+			target.getPass(null);
 			result = true;
 			
 		}catch(InvalidInputException iie){
@@ -160,7 +160,7 @@ public class PassServiceImplTest {
 			
 			boolean result;
 			try {
-				target.addPass(null);
+				target.add(null);
 				result = true;
 				
 			}catch(DataIntegrityViolationException dive){
@@ -180,7 +180,7 @@ public class PassServiceImplTest {
 			
 			boolean result;
 			try {
-				target.updatePass(null);
+				target.update(null);
 				result = true;
 				
 			}catch(DataIntegrityViolationException dive){

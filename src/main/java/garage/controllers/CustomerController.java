@@ -13,7 +13,6 @@ import garage.entities.Customer;
 import garage.services.CustomerService;
 import garage.services.InvalidInputException;
 
-
 @RestController
 public class CustomerController {
 	
@@ -25,30 +24,35 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value="/customer", method=RequestMethod.GET)
-	public List<Customer> getCustomerList(){
-		return customerService.getCustomerList();
+	public List<Customer> getCustomerData(){
+		return customerService.getCustomerData();
 	}
 	
 	@RequestMapping(value="/customer/{id}", method=RequestMethod.GET)
-	public Customer getCustomerById(@PathVariable Integer id)throws InvalidInputException{
-		return customerService.getCustomerById(id);
+	public Customer getCustomer(@PathVariable Integer id)throws InvalidInputException{
+		return customerService.getCustomer(id);
 	}
 	
 	@RequestMapping(value="/customer", method=RequestMethod.POST)  
-	public void addCustomer(@RequestBody Customer customer) { 
+	public void add(@RequestBody Customer customer) { 
 		System.out.println(customer);
-		customerService.addCustomer(customer);
+		customerService.add(customer);
 	}
 	
 	@RequestMapping(value="/customer/{id}", method=RequestMethod.PUT)
 	public void updateCustomer(@PathVariable Integer id, @RequestBody Customer customer){ 
-		customer.setCustomerId(id);
-		customerService.updateCustomer(customer);
+		customer.setId(id);
+		customerService.update(customer);
 	}
 	
 	@RequestMapping(value="/customer/{id}", method=RequestMethod.DELETE)
 	public void deleteById(@PathVariable Integer id){
-		customerService.deleteCustomer(id);
+		customerService.delete(id);
 	}
+	
+	/*@RequestMapping(value="/customer/{customer}", method=RequestMethod.DELETE)
+	public void delete(@PathVariable Customer customer){
+		customerService.delete(customer);
+	}*/
 	
 }

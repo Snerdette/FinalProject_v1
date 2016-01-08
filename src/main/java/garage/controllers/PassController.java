@@ -25,28 +25,33 @@ public class PassController {
 	
 	@RequestMapping(value="/pass", method=RequestMethod.GET)
 	public List<Pass> getPassList(){
-		return passService.getPassList();
+		return passService.getPassData();
 	}
 	
 	@RequestMapping(value="/pass/{id}", method=RequestMethod.GET)
 	public Pass getPassById(@PathVariable Integer id)throws InvalidInputException{
-		return passService.getPassById(id);
+		return passService.getPass(id);
 	}
 	
 	@RequestMapping(value="/pass", method=RequestMethod.POST)  
 	public void addPass(@RequestBody Pass pass) { 
 		System.out.println(pass);
-		passService.addPass(pass);
+		passService.add(pass);
 	}
 	
 	@RequestMapping(value="/pass/{id}", method=RequestMethod.PUT)
 	public void updatePass(@PathVariable Integer id, @RequestBody Pass pass){ 
-		pass.setPassId(id);
-		passService.updatePass(pass);
+		pass.setId(id);
+		passService.update(pass);
 	}
 	
 	@RequestMapping(value="/pass/{id}", method=RequestMethod.DELETE)
-	public void deletePass(@PathVariable Integer id){
-		passService.deletePass(id);
+	public void deleteById(@PathVariable Integer id){
+		passService.delete(id);
 	}
+	
+/*	@RequestMapping(value="/pass/{pass}", method=RequestMethod.DELETE)
+	public void delete(@PathVariable Integer id, @RequestBody Pass pass){
+		passService.delete(pass);
+	}*/
 }

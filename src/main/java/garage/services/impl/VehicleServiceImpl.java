@@ -8,6 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import garage.dao.VehicleDao;
+import garage.entities.Customer;
 import garage.entities.Vehicle;
 import garage.services.InvalidInputException;
 import garage.services.VehicleService;
@@ -24,8 +25,8 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public List<Vehicle> getVehicleList() {
-		List<Vehicle> vehicle = vehicleDao.getVehicleList();
+	public List<Vehicle> getVehicleData() {
+		List<Vehicle> vehicle = vehicleDao.getVehicleData();
 		List<Vehicle> allVehicle = new ArrayList<>();
 		
 		for (Vehicle e : vehicle) {
@@ -35,33 +36,34 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public Vehicle getVehicleById(Integer vehicleId) throws InvalidInputException {
+	public Vehicle getVehicle(Integer vehicleId) throws InvalidInputException {
 		if (vehicleId == null || vehicleId < 0) {
 			throw new InvalidInputException("vehicleId.NullOrNegative");
 		}
-		return vehicleDao.getVehicleById(vehicleId);
+		return vehicleDao.getVehicle(vehicleId);
 	}
 
 	@Override
-	public void addVehicle(Vehicle vehicle) {
+	public void add(Vehicle vehicle) {
 		if (vehicle == null) {
 			throw new DataIntegrityViolationException("Vehicle number is null");
 		}else{
-			vehicleDao.addVehicle(vehicle);
+			vehicleDao.add(vehicle);
 		}		
 	}
 	
 	@Override
-	public void updateVehicle(Vehicle vehicle) {
+	public void update(Vehicle vehicle) {
 		if (vehicle == null) {
 			throw new DataIntegrityViolationException("Vehicle number is null");
 		}else{
-			vehicleDao.updateVehicle(vehicle);
+			vehicleDao.update(vehicle);
 		}	
 	}
 	
 	@Override
-	public void deleteVehicle(Integer vehicleId) {
-		vehicleDao.deleteVehicle(vehicleId);
+	public void delete(Integer vehicleId) {
+		vehicleDao.delete(vehicleId);
 	}
+	
 }

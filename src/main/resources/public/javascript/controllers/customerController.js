@@ -7,8 +7,8 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'c
 	$scope.customerEditData = {};
 	$scope.isEditing = false;
 	$scope.customerList = [];
-	/*var uiMask = require('angular-ui-mask');*/
-
+	/*var uiMask = require('angular-ui-mask');
+*/
 	
 	//Gets The List of customers.
 	$scope.getCustomerList = customerFactory.getCustomerList().then(

@@ -24,8 +24,8 @@ public class PassServiceImpl implements PassService {
 	}
 
 	@Override
-	public List<Pass> getPassList() {
-		List<Pass> pass = passDao.getPassList();
+	public List<Pass> getPassData() {
+		List<Pass> pass = passDao.getPassData();
 		List<Pass> allPass = new ArrayList<>();
 		
 		for (Pass e : pass) {
@@ -35,33 +35,34 @@ public class PassServiceImpl implements PassService {
 	}
 
 	@Override
-	public Pass getPassById(Integer passId) throws InvalidInputException {
+	public Pass getPass(Integer passId) throws InvalidInputException {
 		if (passId == null || passId < 0) {
 			throw new InvalidInputException("passId.NullOrNegative");
 		}
-		return passDao.getPassById(passId);
+		return passDao.getPass(passId);
 	}
 
 	@Override
-	public void addPass(Pass pass) {
+	public void add(Pass pass) {
 		if (pass == null) {
 			throw new DataIntegrityViolationException("Pass number is null");
 		}else{
-			passDao.addPass(pass);
+			passDao.add(pass);
 		}		
 	}
 	
 	@Override
-	public void updatePass(Pass pass) {
+	public void update(Pass pass) {
 		if (pass == null) {
 			throw new DataIntegrityViolationException("Pass number is null");
 		}else{
-			passDao.updatePass(pass);
+			passDao.update(pass);
 		}	
 	}
 	
 	@Override
-	public void deletePass(Integer passId) {
-		passDao.deletePass(passId);
+	public void delete(Integer passId) {
+		passDao.delete(passId);
 	}
+	
 }

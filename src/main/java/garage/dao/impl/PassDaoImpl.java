@@ -23,38 +23,38 @@ public class PassDaoImpl implements PassDao{
 	}
 	
 	@Override
-	public List<Pass> getPassList() {
+	public List<Pass> getPassData() {
 		return em.createQuery("SELECT t FROM pass t", Pass.class)
 				.getResultList();
 	}
 	
 	@Override
-	public void addPass(Pass pass) {
+	public void add(Pass pass) {
 		em.persist(pass);
 	}
 	
 	@Override
-	public void updatePass(Pass pass) {
+	public void update(Pass pass) {
 		em.merge(pass);
 	}
 	
 	//need to grab list of powers from linking table Pass_Power where Pass.id = Pass_Power.passId
 	@Override
-	public Pass getPassById(Integer passId) {
-		return em.createQuery("SELECT e FROM pass e WHERE e.pass_id = :id", Pass.class)
+	public Pass getPass(Integer passId) {
+		return em.createQuery("SELECT e FROM pass e WHERE e.id = :id", Pass.class)
 				.setParameter("id", passId)
 				.getSingleResult();
 	}
 
 	@Override
-	public void deletePass(Integer passId) {
-		em.merge(passId);	
+	public void delete(Pass pass) {
+		em.merge(pass);	
 	}
 	
-	/*@Override
-	public void deletePassById(Integer passId) {
-		Pass pass = getPassById(passId);
+	@Override
+	public void delete(Integer passId) {
+		Pass pass = getPass(passId);
 		em.remove(pass);
-	}*/
+	}
 
 }

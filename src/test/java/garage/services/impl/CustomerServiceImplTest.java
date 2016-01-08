@@ -42,8 +42,8 @@ public class CustomerServiceImplTest {
 	public void testGetAllCustomeres(){
 		target.setCustomerDao(mockEm);
 		List<Customer> expected = new ArrayList<Customer>();
-		when(mockEm.getCustomerList()).thenReturn(expected);
-		List<Customer> actual = target.getCustomerList();
+		when(mockEm.getCustomerData()).thenReturn(expected);
+		List<Customer> actual = target.getCustomerData();
 		
 		assertEquals(expected, actual);
 	}
@@ -55,11 +55,11 @@ public class CustomerServiceImplTest {
 	public void testGetCustomerObjectById(){
 		target.setCustomerDao(mockEm);
 		Customer expected = new Customer();
-		when(mockEm.getCustomerById(anyInt())).thenReturn(expected);
+		when(mockEm.getCustomer(anyInt())).thenReturn(expected);
 		Customer actual = null;
 		
 		try {
-			actual = target.getCustomerById(3);
+			actual = target.getCustomer(3);
 		} catch (InvalidInputException e) {
 /*			e.printStackTrace();*/
 		}
@@ -73,12 +73,12 @@ public class CustomerServiceImplTest {
 	public void testGetCustomerObjectByNullIdSadPath(){
 		target.setCustomerDao(mockEm);
 		Customer expected = new Customer();
-		expected.setCustomerId(null);
-		when(mockEm.getCustomerById(anyInt())).thenReturn(expected);
+		expected.setId(null);
+		when(mockEm.getCustomer(anyInt())).thenReturn(expected);
 		Customer actual = null;
 		
 		try {
-			actual = target.getCustomerById(3);
+			actual = target.getCustomer(3);
 		} catch (InvalidInputException e) {
 /*			e.printStackTrace();*/
 		}
@@ -91,14 +91,14 @@ public class CustomerServiceImplTest {
 	@Test
 	public void testAddCustomerObject(){
 		Customer customer = new Customer();
-		customer.setCustomerId(2);
+		customer.setId(2);
 		customer.setFirstName("testFirst");
 		customer.setLastName("testLast");
 		customer.setEmail("test@Email.com");
 		customer.setPhone("503-123-4567");
 		
-		target.addCustomer(customer);
-		verify(mockEm, times(1)).addCustomer(customer);
+		target.add(customer);
+		verify(mockEm, times(1)).add(customer);
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public class CustomerServiceImplTest {
 	@Test
 	public void testUpdateCustomerObjectHappy(){
 		Customer customer = new Customer();
-		target.updateCustomer(customer);	
+		target.update(customer);	
 	}
 	
 	/**
@@ -117,28 +117,28 @@ public class CustomerServiceImplTest {
 	@Test
 	public void testDeletingCustomerObjectById() throws InvalidInputException{
 		Customer customer = new Customer();
-		customer.setCustomerId(2);
-		target.deleteCustomer(2);
+		customer.setId(2);
+		target.delete(2);
 		
 		boolean result = false;
 		try{
-			target.getCustomerById(2);
+			target.getCustomer(2);
 			result = false;
 		}catch (NullPointerException npe){
 			result = true;
 		}
-		verify(mockEm, times(1)).getCustomerById(2);
+		verify(mockEm, times(1)).getCustomer(2);
 	}
 	
 	//Need to try adding a customer with a null id
 	@Test
 	public void testAddingCustomerWithNullIdSadPath() {
 		Customer customer = new Customer();
-		customer.setCustomerId(null);
+		customer.setId(null);
 		
 		boolean result = false;
 		try {
-			target.getCustomerById(null);
+			target.getCustomer(null);
 			result = true;
 			
 		}catch(InvalidInputException iie){
@@ -158,7 +158,7 @@ public class CustomerServiceImplTest {
 			
 			boolean result;
 			try {
-				target.addCustomer(null);
+				target.add(null);
 				result = true;
 				
 			}catch(DataIntegrityViolationException dive){
@@ -178,7 +178,7 @@ public class CustomerServiceImplTest {
 			
 			boolean result;
 			try {
-				target.updateCustomer(null);
+				target.update(null);
 				result = true;
 				
 			}catch(DataIntegrityViolationException dive){

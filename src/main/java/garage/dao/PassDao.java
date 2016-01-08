@@ -5,13 +5,15 @@ import garage.entities.Pass;
 
 public interface PassDao {
 
-	public List<Pass> getPassList();
+	public List<Pass> getPassData();
 
-	void deletePass(Integer passId);
+	void add(Pass pass);
+	
+	void update(Pass pass);
+	
+	void delete(Integer passId);
+	
+	void delete(Pass pass);
 
-	void updatePass(Pass pass);
-
-	void addPass(Pass pass);
-
-	public Pass getPassById(Integer passId);
+	public Pass getPass(Integer passId);
 }

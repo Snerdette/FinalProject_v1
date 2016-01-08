@@ -6,13 +6,14 @@ import garage.entities.Vehicle;
 
 public interface VehicleService {
 
-	Vehicle getVehicleById(Integer vehicleId) throws InvalidInputException;
+	Vehicle getVehicle(Integer vehicleId) throws InvalidInputException;
 	
-	public List<Vehicle> getVehicleList();
+	public List<Vehicle> getVehicleData();
 	
-	public void addVehicle(Vehicle vehicle);
+	public void add(Vehicle vehicle);
 	
-	public void updateVehicle(Vehicle vehicle);
+	public void update(Vehicle vehicle);
 	
-	public void deleteVehicle(Integer vehicleId);
+	public void delete(Integer vehicleId);
+	
 }

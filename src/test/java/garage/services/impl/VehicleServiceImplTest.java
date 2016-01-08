@@ -43,8 +43,8 @@ public class VehicleServiceImplTest {
 	public void testGetAllVehiclees(){
 		target.setVehicleDao(mockEm);
 		List<Vehicle> expected = new ArrayList<Vehicle>();
-		when(mockEm.getVehicleList()).thenReturn(expected);
-		List<Vehicle> actual = target.getVehicleList();
+		when(mockEm.getVehicleData()).thenReturn(expected);
+		List<Vehicle> actual = target.getVehicleData();
 		
 		assertEquals(expected, actual);
 	}
@@ -56,11 +56,11 @@ public class VehicleServiceImplTest {
 	public void testGetVehicleObjectById(){
 		target.setVehicleDao(mockEm);
 		Vehicle expected = new Vehicle();
-		when(mockEm.getVehicleById(anyInt())).thenReturn(expected);
+		when(mockEm.getVehicle(anyInt())).thenReturn(expected);
 		Vehicle actual = null;
 		
 		try {
-			actual = target.getVehicleById(3);
+			actual = target.getVehicle(3);
 		} catch (InvalidInputException e) {
 /*			e.printStackTrace();*/
 		}
@@ -74,12 +74,12 @@ public class VehicleServiceImplTest {
 	public void testGetVehicleObjectByNullIdSadPath(){
 		target.setVehicleDao(mockEm);
 		Vehicle expected = new Vehicle();
-		expected.setVehicleId(null);
-		when(mockEm.getVehicleById(anyInt())).thenReturn(expected);
+		expected.setId(null);
+		when(mockEm.getVehicle(anyInt())).thenReturn(expected);
 		Vehicle actual = null;
 		
 		try {
-			actual = target.getVehicleById(3);
+			actual = target.getVehicle(3);
 		} catch (InvalidInputException e) {
 /*			e.printStackTrace();*/
 		}
@@ -92,14 +92,14 @@ public class VehicleServiceImplTest {
 	@Test
 	public void testAddVehicleObject(){
 		Vehicle vehicle = new Vehicle();
-		vehicle.setVehicleId(2);
+		vehicle.setId(2);
 		vehicle.setColor("Red");
 		vehicle.setPlateNumber("testPlateNumber");
 		vehicle.setPlateState("OR");
 
 		
-		target.addVehicle(vehicle);
-		verify(mockEm, times(1)).addVehicle(vehicle);
+		target.add(vehicle);
+		verify(mockEm, times(1)).add(vehicle);
 	}
 	
 	/**
@@ -108,7 +108,7 @@ public class VehicleServiceImplTest {
 	@Test
 	public void testUpdateVehicleObjectHappy(){
 		Vehicle vehicle = new Vehicle();
-		target.updateVehicle(vehicle);	
+		target.update(vehicle);	
 	}
 	
 	/**
@@ -118,28 +118,28 @@ public class VehicleServiceImplTest {
 	@Test
 	public void testDeletingVehicleObjectById() throws InvalidInputException{
 		Vehicle vehicle = new Vehicle();
-		vehicle.setVehicleId(2);
-		target.deleteVehicle(2);
+		vehicle.setId(2);
+		target.delete(2);
 		
 		boolean result = false;
 		try{
-			target.getVehicleById(2);
+			target.getVehicle(2);
 			result = false;
 		}catch (NullPointerException npe){
 			result = true;
 		}
-		verify(mockEm, times(1)).getVehicleById(2);
+		verify(mockEm, times(1)).getVehicle(2);
 	}
 	
 	//Need to try adding a vehicle with a null id
 	@Test
 	public void testAddingVehicleWithNullIdSadPath() {
 		Vehicle vehicle = new Vehicle();
-		vehicle.setVehicleId(null);
+		vehicle.setId(null);
 		
 		boolean result = false;
 		try {
-			target.getVehicleById(null);
+			target.getVehicle(null);
 			result = true;
 			
 		}catch(InvalidInputException iie){
@@ -159,7 +159,7 @@ public class VehicleServiceImplTest {
 			
 			boolean result;
 			try {
-				target.addVehicle(null);
+				target.add(null);
 				result = true;
 				
 			}catch(DataIntegrityViolationException dive){
@@ -179,7 +179,7 @@ public class VehicleServiceImplTest {
 			
 			boolean result;
 			try {
-				target.updateVehicle(null);
+				target.update(null);
 				result = true;
 				
 			}catch(DataIntegrityViolationException dive){

@@ -4,7 +4,7 @@ angular.module('myApp').factory('modelFactory', ['$http', function($http){
 		getModelList: function(model){
 			return $http.get('model');
 		},
-		getMakeById: function(make){
+		getMake: function(make){
 			return $http.get('/make/' + make)
 		}
 	}

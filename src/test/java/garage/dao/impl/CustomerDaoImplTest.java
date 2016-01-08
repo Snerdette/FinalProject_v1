@@ -44,7 +44,7 @@ public class CustomerDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Customer.class))).thenReturn(mockedTypedQuery);
 			when(mockedTypedQuery.getResultList()).thenReturn(expected);
 			
-			target.getCustomerList();
+			target.getCustomerData();
 			
 			verify(mockedTypedQuery, times(1)).getResultList();		
 		}
@@ -55,7 +55,7 @@ public class CustomerDaoImplTest {
 		@Test
 		public void testAddCustomerAndPersistToDatabase(){
 			Customer customer = new Customer();
-			target.addCustomer(customer);
+			target.add(customer);
 			verify(mockEm, times(1)).persist(customer);
 		}
 		
@@ -63,11 +63,11 @@ public class CustomerDaoImplTest {
 		public void testRemoveCustomerByIdFromDatabase(){
 			Customer customer = new Customer();
 			boolean result = true;
-			customer.setCustomerId(2);
-			target.addCustomer(customer);
-			target.deleteCustomer(customer.customerId);
+			customer.setId(2);
+			target.add(customer);
+			target.delete(customer.id);
 			try{
-				customer.getCustomerId();
+				customer.getId();
 				result = false;
 			}catch(NullPointerException npe){
 				result = true;
@@ -78,7 +78,7 @@ public class CustomerDaoImplTest {
 		@Test
 		public void testUpdateCustomerById(){
 			Customer customer = new Customer();
-			target.updateCustomer(customer);
+			target.update(customer);
 			verify(mockEm, times(1)).merge(customer);
 		}
 		
@@ -89,7 +89,7 @@ public class CustomerDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Customer.class))).thenReturn(mockTypedQuery);
 			when(mockTypedQuery.setParameter(anyString(), anyInt())).thenReturn(mockTypedQuery);
 			
-			target.getCustomerById(0);
+			target.getCustomer(0);
 			verify(mockTypedQuery, times(1)).setParameter(eq("id"), eq(0));		
 		}
 	

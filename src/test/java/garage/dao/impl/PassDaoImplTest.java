@@ -43,7 +43,7 @@ public class PassDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Pass.class))).thenReturn(mockedTypedQuery);
 			when(mockedTypedQuery.getResultList()).thenReturn(expected);
 			
-			target.getPassList();
+			target.getPassData();
 			
 			verify(mockedTypedQuery, times(1)).getResultList();		
 		}
@@ -54,7 +54,7 @@ public class PassDaoImplTest {
 		@Test
 		public void testAddPassAndPersistToDatabase(){
 			Pass pass = new Pass();
-			target.addPass(pass);
+			target.add(pass);
 			verify(mockEm, times(1)).persist(pass);
 		}
 		
@@ -62,11 +62,11 @@ public class PassDaoImplTest {
 		public void testRemovePassByIdFromDatabase(){
 			Pass pass = new Pass();
 			boolean result = true;
-			pass.setPassId(2);
-			target.addPass(pass);
-			target.deletePass(pass.passId);
+			pass.setId(2);
+			target.add(pass);
+			target.delete(pass.id);
 			try{
-				pass.getPassId();
+				pass.getId();
 				result = false;
 			}catch(NullPointerException npe){
 				result = true;
@@ -77,7 +77,7 @@ public class PassDaoImplTest {
 		@Test
 		public void testUpdatePassById(){
 			Pass pass = new Pass();
-			target.updatePass(pass);
+			target.update(pass);
 			verify(mockEm, times(1)).merge(pass);
 		}
 		
@@ -89,7 +89,7 @@ public class PassDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Pass.class))).thenReturn(mockTypedQuery);
 			when(mockTypedQuery.setParameter(anyString(), anyInt())).thenReturn(mockTypedQuery);
 			
-			target.getPassById(0);
+			target.getPass(0);
 			verify(mockTypedQuery, times(1)).setParameter(eq("id"), eq(0));		
 		}
 }

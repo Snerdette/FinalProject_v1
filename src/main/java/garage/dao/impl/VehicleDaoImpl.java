@@ -23,38 +23,38 @@ public class VehicleDaoImpl implements VehicleDao {
 	}
 	
 	@Override
-	public List<Vehicle> getVehicleList() {
+	public List<Vehicle> getVehicleData() {
 		return em.createQuery("SELECT t FROM vehicle t", Vehicle.class)
 				.getResultList();
 	}
 	
 	@Override
-	public void addVehicle(Vehicle vehicle) {
+	public void add(Vehicle vehicle) {
 		em.persist(vehicle);
 	}
 	
 	@Override
-	public void updateVehicle(Vehicle vehicle) {
+	public void update(Vehicle vehicle) {
 		em.merge(vehicle);
 	}
 	
 	//need to grab list of powers from linking table Vehicle_Power where Vehicle.id = Vehicle_Power.vehicleId
 	@Override
-	public Vehicle getVehicleById(Integer vehicleId) {
-		return em.createQuery("SELECT e FROM vehicle e WHERE e.vehicle_id = :id", Vehicle.class)
+	public Vehicle getVehicle(Integer vehicleId) {
+		return em.createQuery("SELECT e FROM vehicle e WHERE e.id = :id", Vehicle.class)
 				.setParameter("id", vehicleId)
 				.getSingleResult();
 	}
 
 	@Override
-	public void deleteVehicle(Integer vehicleId) {
-		em.merge(vehicleId);	
+	public void delete(Vehicle vehicle) {
+		em.merge(vehicle);	
 	}
 	
-	/*@Override
-	public void deleteVehicleById(Integer vehicleId) {
-		Vehicle vehicle = getVehicleById(vehicleId);
+	@Override
+	public void delete(Integer vehicleId) {
+		Vehicle vehicle = getVehicle(vehicleId);
 		em.remove(vehicle);
-	}*/
+	}
 
 }

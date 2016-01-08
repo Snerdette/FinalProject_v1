@@ -44,7 +44,7 @@ public class VehicleDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Vehicle.class))).thenReturn(mockedTypedQuery);
 			when(mockedTypedQuery.getResultList()).thenReturn(expected);
 			
-			target.getVehicleList();
+			target.getVehicleData();
 			
 			verify(mockedTypedQuery, times(1)).getResultList();		
 		}
@@ -55,7 +55,7 @@ public class VehicleDaoImplTest {
 		@Test
 		public void testAddVehicleAndPersistToDatabase(){
 			Vehicle vehicle = new Vehicle();
-			target.addVehicle(vehicle);
+			target.add(vehicle);
 			verify(mockEm, times(1)).persist(vehicle);
 		}
 		
@@ -63,11 +63,11 @@ public class VehicleDaoImplTest {
 		public void testRemoveVehicleByIdFromDatabase(){
 			Vehicle vehicle = new Vehicle();
 			boolean result = true;
-			vehicle.setVehicleId(2);
-			target.addVehicle(vehicle);
-			target.deleteVehicle(vehicle.vehicleId);
+			vehicle.setId(2);
+			target.add(vehicle);
+			target.delete(vehicle.id);
 			try{
-				vehicle.getVehicleId();
+				vehicle.getId();
 				result = false;
 			}catch(NullPointerException npe){
 				result = true;
@@ -78,7 +78,7 @@ public class VehicleDaoImplTest {
 		@Test
 		public void testUpdateVehicleById(){
 			Vehicle vehicle = new Vehicle();
-			target.updateVehicle(vehicle);
+			target.update(vehicle);
 			verify(mockEm, times(1)).merge(vehicle);
 		}
 		
@@ -90,7 +90,7 @@ public class VehicleDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Vehicle.class))).thenReturn(mockTypedQuery);
 			when(mockTypedQuery.setParameter(anyString(), anyInt())).thenReturn(mockTypedQuery);
 			
-			target.getVehicleById(0);
+			target.getVehicle(0);
 			verify(mockTypedQuery, times(1)).setParameter(eq("id"), eq(0));		
 		}
 }

@@ -17,9 +17,9 @@ public class Vehicle {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="vehicle_id")
-	public  Integer vehicleId;
+	public  Integer id;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+	@ManyToOne/*(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)*/
 	@JoinColumn(name="model_id")
 	public Model model;
 	
@@ -35,12 +35,12 @@ public class Vehicle {
 	@Column(name="plate_state")
 	private String plateState;
 
-	public Integer getVehicleId() {
-		return vehicleId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setVehicleId(Integer vehicleId) {
-		this.vehicleId = vehicleId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getPlateNumber() {

@@ -5,7 +5,7 @@ import garage.entities.Model;
 
 public interface ModelDao {
 
-	public List<Model> getModelList();
+	public List<Model> getModelData();
 
 	public Model getModelById(Integer modelId);
 }

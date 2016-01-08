@@ -25,8 +25,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<Customer> getCustomerList() {
-		List<Customer> customer = customerDao.getCustomerList();
+	public List<Customer> getCustomerData() {
+		List<Customer> customer = customerDao.getCustomerData();
 		List<Customer> allCustomer = new ArrayList<>();
 		
 		for (Customer e : customer) {
@@ -36,33 +36,33 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer getCustomerById(Integer customerId) throws InvalidInputException {
+	public Customer getCustomer(Integer customerId) throws InvalidInputException {
 		if (customerId == null || customerId < 0) {
 			throw new InvalidInputException("customerId.NullOrNegative");
 		}
-		return customerDao.getCustomerById(customerId);
+		return customerDao.getCustomer(customerId);
 	}
 
 	@Override
-	public void addCustomer(Customer customer) {
+	public void add(Customer customer) {
 		if (customer == null) {
 			throw new DataIntegrityViolationException("Customer number is null");
 		}else{
-			customerDao.addCustomer(customer);
+			customerDao.add(customer);
 		}		
 	}
 	
-	public void updateCustomer(Customer customer) {
+	public void update(Customer customer) {
 		if (customer == null) {
 			throw new DataIntegrityViolationException("Customer number is null");
 		}else{
-			customerDao.updateCustomer(customer);
+			customerDao.update(customer);
 		}	
 	}
 	
 	@Override
-	public void deleteCustomer(Integer customerId) {
-		customerDao.deleteCustomer(customerId);
+	public void delete(Integer customerId) {
+		customerDao.delete(customerId);
 	}
 
 }

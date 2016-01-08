@@ -3,8 +3,10 @@ package garage.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +29,7 @@ public class Pass {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="pass_id")
-	public  Integer passId;
+	public  Integer id;
 	
 	@Column(name="is_active")
 	private boolean isActive;
@@ -42,7 +44,7 @@ public class Pass {
 	private double price;
 	
 	//List of Customers that this pass belongs to. Many passes can be held by a customer.
-	@ManyToOne
+	@ManyToOne (cascade = CascadeType.MERGE)
 	@JoinColumn(name="customer_id")
 	public Customer customer;
 	
@@ -55,12 +57,12 @@ public class Pass {
 	@Column(name="type")
 	private String type;
 
-	public Integer getPassId() {
-		return passId;
+	public Integer getId() {
+		return id;
 	}
 	
-	public void setPassId(Integer passId) {
-		this.passId = passId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public boolean isActive() {

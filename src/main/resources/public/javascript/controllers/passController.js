@@ -80,7 +80,7 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 				function(success){
 					$scope.deletePassResult = success
 					console.log("success deleting pass");
-					$state.go("viewPasss", {}, {reload:true});
+					$state.go("viewPasses", {}, {reload:true});
 				},
 				function(error){
 					$scope.deletePassResult = error;

@@ -24,29 +24,34 @@ public class VehicleController {
 	}
 	
 	@RequestMapping(value="/vehicle", method=RequestMethod.GET)
-	public List<Vehicle> getVehicleList(){
-		return vehicleService.getVehicleList();
+	public List<Vehicle> getVehicleData(){
+		return vehicleService.getVehicleData();
 	}
 	
 	@RequestMapping(value="/vehicle/{id}", method=RequestMethod.GET)
-	public Vehicle getVehicleById(@PathVariable Integer id)throws InvalidInputException{
-		return vehicleService.getVehicleById(id);
+	public Vehicle getVehicle(@PathVariable Integer id)throws InvalidInputException{
+		return vehicleService.getVehicle(id);
 	}
 	
 	@RequestMapping(value="/vehicle", method=RequestMethod.POST)  
-	public void addVehicle(@RequestBody Vehicle vehicle) { 
+	public void add(@RequestBody Vehicle vehicle) { 
 		System.out.println(vehicle);
-		vehicleService.addVehicle(vehicle);
+		vehicleService.add(vehicle);
 	}
 	
 	@RequestMapping(value="/vehicle/{id}", method=RequestMethod.PUT)
 	public void updateVehicle(@PathVariable Integer id, @RequestBody Vehicle vehicle){ 
-		vehicle.setVehicleId(id);
-		vehicleService.updateVehicle(vehicle);
+		vehicle.setId(id);
+		vehicleService.update(vehicle);
 	}
 	
 	@RequestMapping(value="/vehicle/{id}", method=RequestMethod.DELETE)
-	public void deleteVehicle(@PathVariable Integer id){
-		vehicleService.deleteVehicle(id);
+	public void deleteById(@PathVariable Integer id){
+		vehicleService.delete(id);
 	}
+	
+	/*@RequestMapping(value="/vehicle/{vehicle}", method=RequestMethod.DELETE)
+	public void delete(@PathVariable Integer id, @RequestBody Vehicle vehicle){
+		vehicleService.delete(vehicle);
+	}*/
 }

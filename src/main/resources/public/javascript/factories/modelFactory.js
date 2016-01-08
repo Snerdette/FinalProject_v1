@@ -1,7 +1,7 @@
 angular.module('myApp').factory('modelFactory', ['$http', function($http){
 	
 	return {
-		getModelList: function(model){
+		getAllModels: function(model){
 			return $http.get('model');
 		},
 		getMake: function(make){

@@ -24,8 +24,8 @@ public class MakeController {
 	}
 
 	@RequestMapping(value="/make", method=RequestMethod.GET)
-	public List<Make> getMakeList(){
-		return makeService.getMakeList();
+	public List<Make> getAllMakes(){
+		return makeService.getAllMakes();
 	}
 	
 	@RequestMapping(value="/make/{id}", method=RequestMethod.GET)

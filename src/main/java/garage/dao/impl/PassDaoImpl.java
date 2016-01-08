@@ -23,7 +23,7 @@ public class PassDaoImpl implements PassDao{
 	}
 	
 	@Override
-	public List<Pass> getPassData() {
+	public List<Pass> getAllPasses() {
 		return em.createQuery("SELECT t FROM pass t", Pass.class)
 				.getResultList();
 	}

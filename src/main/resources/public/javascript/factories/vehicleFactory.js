@@ -4,7 +4,7 @@ angular.module('myApp').factory('vehicleFactory', ['$http', function($http){
 		createVehicle: function(vehicle){
 			return $http.post('vehicle', vehicle);
 		},
-		getVehicleList: function(vehicle){
+		getAllVehicles: function(vehicle){
 			return $http.get('vehicle');
 		},
 		deleteVehicle: function(vehicleId){

@@ -23,7 +23,7 @@ public class ModelDaoImpl implements ModelDao{
 	}
 	
 	@Override
-	public List<Model> getModelData() {
+	public List<Model> getAllModels() {
 		return em.createQuery("SELECT t FROM model t", Model.class)
 				.getResultList();
 	}

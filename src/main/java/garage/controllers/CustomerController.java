@@ -50,9 +50,4 @@ public class CustomerController {
 		customerService.delete(id);
 	}
 	
-	/*@RequestMapping(value="/customer/{customer}", method=RequestMethod.DELETE)
-	public void delete(@PathVariable Customer customer){
-		customerService.delete(customer);
-	}*/
-	
 }

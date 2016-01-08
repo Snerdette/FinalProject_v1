@@ -5,7 +5,7 @@ import garage.entities.Make;
 
 public interface MakeDao {
 
-	public List<Make> getMakeData();
+	public List<Make> getAllMakes();
 
 	public Make getMakeById(Integer makeId);
 }

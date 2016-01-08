@@ -7,8 +7,8 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 	$scope.makeList = [];
 	$scope.modelList = [];
 	
-	//Gets The List of vehicles.
-	$scope.getVehicleList = vehicleFactory.getVehicleList().then(
+	//Gets The Data of vehicles.
+	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(
 			function(success){
 				$scope.vehicleList = success.data;
 				console.log("Success retrieving VehicleList");
@@ -19,8 +19,8 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 			}
 	);
 	
-	//Gets Model List
-	$scope.getModelList = modelFactory.getModelList().then(
+	//Gets Model Data
+	$scope.getAllModels = modelFactory.getAllModels().then(
 			function(success){
 				$scope.modelList = success.data;
 				console.log("Success retrieving ModelList");
@@ -31,8 +31,8 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 			}
 	);
 	
-	//Gets Make List
-	$scope.getMakeList = makeFactory.getMakeList().then(
+	//Gets Make Data
+	$scope.getAllMakes = makeFactory.getAllMakes().then(
 			function(success){
 				$scope.makeList = success.data;
 				console.log("Success retrieving MakeList");

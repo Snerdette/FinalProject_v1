@@ -44,8 +44,8 @@ public class PassServiceImplTest {
 	public void testGetAllPasses(){
 		target.setPassDao(mockEm);
 		List<Pass> expected = new ArrayList<Pass>();
-		when(mockEm.getPassData()).thenReturn(expected);
-		List<Pass> actual = target.getPassData();
+		when(mockEm.getAllPasses()).thenReturn(expected);
+		List<Pass> actual = target.getAllPasses();
 		
 		assertEquals(expected, actual);
 	}

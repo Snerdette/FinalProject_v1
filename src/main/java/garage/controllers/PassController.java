@@ -24,8 +24,8 @@ public class PassController {
 	}
 	
 	@RequestMapping(value="/pass", method=RequestMethod.GET)
-	public List<Pass> getPassList(){
-		return passService.getPassData();
+	public List<Pass> getAllPasses(){
+		return passService.getAllPasses();
 	}
 	
 	@RequestMapping(value="/pass/{id}", method=RequestMethod.GET)

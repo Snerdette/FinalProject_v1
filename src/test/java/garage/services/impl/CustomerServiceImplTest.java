@@ -42,8 +42,8 @@ public class CustomerServiceImplTest {
 	public void testGetAllCustomeres(){
 		target.setCustomerDao(mockEm);
 		List<Customer> expected = new ArrayList<Customer>();
-		when(mockEm.getCustomerData()).thenReturn(expected);
-		List<Customer> actual = target.getCustomerData();
+		when(mockEm.getAllCustomers()).thenReturn(expected);
+		List<Customer> actual = target.getAllCustomers();
 		
 		assertEquals(expected, actual);
 	}

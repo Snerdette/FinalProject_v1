@@ -24,8 +24,8 @@ public class ModelController {
 	}
 
 	@RequestMapping(value="/model", method=RequestMethod.GET)
-	public List<Model> getModelList(){
-		return modelService.getModelList();
+	public List<Model> getAllModels(){
+		return modelService.getAllModels();
 	}
 	
 	@RequestMapping(value="/model/{id}", method=RequestMethod.GET)

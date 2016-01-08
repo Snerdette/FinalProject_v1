@@ -10,14 +10,14 @@ angular.module('myApp').controller('customerController', ['$scope', '$state', 'c
 	/*var uiMask = require('angular-ui-mask');
 */
 	
-	//Gets The List of customers.
-	$scope.getCustomerList = customerFactory.getCustomerList().then(
+	//Gets The Data of customers.
+	$scope.getAllCustomers = customerFactory.getAllCustomers().then(
 			function(success){
 				$scope.customerList = success.data;
 				console.log("Success retrieving CustomerList");
 			},
 			function(error){
-				$scope.customer = error;
+				$scope.customerList = error;
 				console.log("Error retrieving CustomerList");
 			}
 	);

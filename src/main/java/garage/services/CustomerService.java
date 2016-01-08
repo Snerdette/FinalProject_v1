@@ -15,6 +15,4 @@ public interface CustomerService {
 	
 	public void delete(Integer customerId);	
 	
-	/*public void delete(Customer customer);	*/
-	
 }

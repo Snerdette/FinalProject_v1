@@ -8,7 +8,7 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 	$scope.vehicleList = [];
 	
 	//Gets The List of passes.
-	$scope.getPassList = passFactory.getPassList().then(
+	$scope.getAllPasses = passFactory.getAllPasses().then(
 			function(success){
 				$scope.passList = success.data;
 				console.log("Success retrieving PassList");
@@ -22,7 +22,7 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 	$scope.pass.customers = [];
 	
 	//Gets The List of customers.
-	$scope.getCustomerList = customerFactory.getCustomerList().then(
+	$scope.getAllCustomers = customerFactory.getAllCustomers().then(
 			function(success){
 				$scope.customerList = success.data;
 				console.log("Success retrieving CustomerList");
@@ -34,7 +34,7 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 	);
 	
 	//Gets The List of customers.
-	$scope.getVehicleList = vehicleFactory.getVehicleList().then(
+	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(
 			function(success){
 				$scope.vehicleList = success.data;
 				console.log("Success retrieving VehicleList");
@@ -69,7 +69,7 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 		
 	};
 	
-	//Grabbing Pass Data for Edit pass Page.
+	//Grabbing Pass List for Edit pass Page.
 	$scope.getPassData = function(pass){
 		$state.go("editPass", {pass: pass});
 	}

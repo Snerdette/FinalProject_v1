@@ -15,17 +15,17 @@ public class Make {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="make_id")
-	public  Integer makeId;
+	public  Integer id;
 	
 	@Column(name="name")
 	private String name;
 
-	public Integer getMakeId() {
-		return makeId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setMakeId(Integer makeId) {
-		this.makeId = makeId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {

@@ -24,8 +24,8 @@ public class MakeServiceImpl implements MakeService {
 	}
 
 	@Override
-	public List<Make> getMakeList() {
-		List<Make> make = makeDao.getMakeData();
+	public List<Make> getAllMakes() {
+		List<Make> make = makeDao.getAllMakes();
 		List<Make> allMake = new ArrayList<>();
 		
 		for (Make e : make) {

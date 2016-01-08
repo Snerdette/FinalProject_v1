@@ -3,8 +3,8 @@ angular.module('myApp').controller('editCustomerController', ['$scope', '$state'
 	$scope.customer = aCustomer.data;
 	$scope.customerList = [];
 	
-	//Gets The List of customers.
-	$scope.getCustomerList = customerFactory.getCustomerList().then(
+	/*//Gets The Data of customers.
+	$scope.getAllCustomers = customerFactory.getAllCustomers().then(
 			function(success){
 				$scope.customerList = success.data;
 				console.log("Success retrieving CustomerList");
@@ -13,7 +13,7 @@ angular.module('myApp').controller('editCustomerController', ['$scope', '$state'
 				$scope.customerList = error;
 				console.log("Error retrieving CustomerList");
 			}
-	);
+	);*/
 	
 	//After Customer is edited, PUT data to Database
 	$scope.updateCustomer = function(customer){

@@ -23,7 +23,7 @@ public class MakeDaoImpl implements MakeDao{
 	}
 	
 	@Override
-	public List<Make> getMakeData() {
+	public List<Make> getAllMakes() {
 		return em.createQuery("SELECT t FROM make t", Make.class)
 				.getResultList();
 	}

@@ -17,7 +17,7 @@ public class Model {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="model_id")
-	public  Integer modelId;
+	public  Integer id;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
 	@JoinColumn(name="make_id")
@@ -26,12 +26,12 @@ public class Model {
 	@Column(name="name", unique=true)
 	public String name;
 
-	public Integer getModelId() {
-		return modelId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setModelId(Integer modelId) {
-		this.modelId = modelId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {

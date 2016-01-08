@@ -1,5 +1,35 @@
-<div ng-app="myApp">
-	<div class="container-fluid">
-	
+<div class="container-fluid" ng-app="myApp">
+	<div class="displayBox" ng-controller="editPassController as edit">
+		<div class="subheader">Edit a Pass</div>
+		<form class="form-horizontal" role="form" ng-submit="createPass(pass)">
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label">Price: </label> 
+					<input ng-model="pass.price" class="form-control" type="number" min="0">
+				</div>
+				<div class="col-md-3">
+					<label class="control-label">Customer: </label> 
+					<select ng-model="pass.customer" class="form-control" ng-options="customer as customer.lastName for customer in customerList">
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label class="control-label">Vehicle: </label> 
+					<select ng-model="pass.vehicle" class="form-control" ng-options="vehicle as vehicle.make for vehicle in vehicleList">
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label class="control-label">Expiration Date: </label> 
+					<input ng-model="pass.expDate" class="form-control" type="text">
+					<input type="text" birthdate-validator ng-model="date" maxlength="10" placeholder="JJ/MM/AAAA" />
+				</div>
+				<div class="modal-footer">
+					<div class="col-md-3 col-md-offset-8 control-label">
+						<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">Save
+								<!-- <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"><h5>Save</h5></span> -->
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>

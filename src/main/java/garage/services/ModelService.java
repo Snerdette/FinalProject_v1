@@ -8,6 +8,6 @@ public interface ModelService {
 
 	Model getModelById(Integer modelId) throws InvalidInputException;
 	
-	public List<Model> getModelList();
+	public List<Model> getAllModels();
 
 }

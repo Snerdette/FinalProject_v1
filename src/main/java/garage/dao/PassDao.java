@@ -5,7 +5,7 @@ import garage.entities.Pass;
 
 public interface PassDao {
 
-	public List<Pass> getAllPasses();
+	public List<Pass> getPassData();
 
 	void add(Pass pass);
 	

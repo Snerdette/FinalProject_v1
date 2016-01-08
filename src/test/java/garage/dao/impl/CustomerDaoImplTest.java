@@ -44,7 +44,7 @@ public class CustomerDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Customer.class))).thenReturn(mockedTypedQuery);
 			when(mockedTypedQuery.getResultList()).thenReturn(expected);
 			
-			target.getAllCustomers();
+			target.getCustomerData();
 			
 			verify(mockedTypedQuery, times(1)).getResultList();		
 		}

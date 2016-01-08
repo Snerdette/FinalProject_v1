@@ -43,8 +43,8 @@ public class VehicleServiceImplTest {
 	public void testGetAllVehiclees(){
 		target.setVehicleDao(mockEm);
 		List<Vehicle> expected = new ArrayList<Vehicle>();
-		when(mockEm.getAllVehicles()).thenReturn(expected);
-		List<Vehicle> actual = target.getAllVehicles();
+		when(mockEm.getVehicleData()).thenReturn(expected);
+		List<Vehicle> actual = target.getVehicleData();
 		
 		assertEquals(expected, actual);
 	}

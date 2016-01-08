@@ -2,6 +2,7 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 	
 	$scope.pass = {};
 	var isValid = true;
+	$scope.isEditing = false;
 	$scope.passList = [];
 	$scope.passEditData = {};
 	$scope.customerList = [];
@@ -19,7 +20,7 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 			}
 	);
 	
-	$scope.pass.customers = [];
+	/*$scope.pass.customers = [];*/
 	
 	//Gets The List of customers.
 	$scope.getAllCustomers = customerFactory.getAllCustomers().then(

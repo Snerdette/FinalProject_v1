@@ -8,6 +8,6 @@ public interface MakeService {
 
 	Make getMakeById(Integer makeId) throws InvalidInputException;
 	
-	public List<Make> getAllMakes();
+	public List<Make> getMakeData();
 	
 }

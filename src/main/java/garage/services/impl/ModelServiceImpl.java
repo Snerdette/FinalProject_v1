@@ -24,8 +24,8 @@ public class ModelServiceImpl implements ModelService {
 	}
 
 	@Override
-	public List<Model> getAllModels() {
-		List<Model> model = modelDao.getAllModels();
+	public List<Model> getModelData() {
+		List<Model> model = modelDao.getModelData();
 		List<Model> allModel = new ArrayList<>();
 		
 		for (Model e : model) {

@@ -4,8 +4,25 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 	$scope.customerList = [];
 	$scope.vehicleList = [];
 	$scope.passList = [];
+	$scope.isEditing = false;
+	var isValid = true;
 	
-	//Gets The List of customers.
+	//After Pass is edited, PUT data to Database
+	$scope.updatePass = function(pass){
+		passFactory.updatePass(pass.id, pass).then(
+				function(success){
+					$scope.updatePassResult = success.data;
+					console.log("success updating Pass");
+					$state.go("dashboard");
+				},
+				function(error){
+					$scope.updatePassResult = error;
+					console.log("error updating Pass");
+				}
+		);
+	};
+	
+	/*//Gets The List of customers.
 	$scope.getAllCustomers = customerFactory.getAllCustomers().then(
 			function(success){
 				$scope.customerList = success.data;
@@ -39,22 +56,6 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 				$scope.passList = error;
 				console.log("Error retrieving PassList");
 			}
-	);
-	
-	
-	//After Pass is edited, PUT data to Database
-	$scope.updatePass = function(pass){
-		passFactory.updatePass(pass.id, pass).then(
-				function(success){
-					$scope.updatePassResult = success.data;
-					console.log("success updating Pass");
-					$state.go("dashboard");
-				},
-				function(error){
-					$scope.updatePassResult = error;
-					console.log("error updating Pass");
-				}
-		);
-	};
+	);*/
 	
 }]);

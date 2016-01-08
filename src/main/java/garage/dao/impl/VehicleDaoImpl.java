@@ -23,7 +23,7 @@ public class VehicleDaoImpl implements VehicleDao {
 	}
 	
 	@Override
-	public List<Vehicle> getAllVehicles() {
+	public List<Vehicle> getVehicleData() {
 		return em.createQuery("SELECT t FROM vehicle t", Vehicle.class)
 				.getResultList();
 	}

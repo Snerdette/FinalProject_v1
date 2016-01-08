@@ -43,7 +43,7 @@ public class PassDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Pass.class))).thenReturn(mockedTypedQuery);
 			when(mockedTypedQuery.getResultList()).thenReturn(expected);
 			
-			target.getAllPasses();
+			target.getPassData();
 			
 			verify(mockedTypedQuery, times(1)).getResultList();		
 		}

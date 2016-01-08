@@ -25,8 +25,8 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public List<Vehicle> getAllVehicles() {
-		List<Vehicle> vehicle = vehicleDao.getAllVehicles();
+	public List<Vehicle> getVehicleData() {
+		List<Vehicle> vehicle = vehicleDao.getVehicleData();
 		List<Vehicle> allVehicle = new ArrayList<>();
 		
 		for (Vehicle e : vehicle) {

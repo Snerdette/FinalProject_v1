@@ -24,8 +24,8 @@ public class PassServiceImpl implements PassService {
 	}
 
 	@Override
-	public List<Pass> getAllPasses() {
-		List<Pass> pass = passDao.getAllPasses();
+	public List<Pass> getPassData() {
+		List<Pass> pass = passDao.getPassData();
 		List<Pass> allPass = new ArrayList<>();
 		
 		for (Pass e : pass) {

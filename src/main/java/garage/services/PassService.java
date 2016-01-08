@@ -8,7 +8,7 @@ public interface PassService {
 
 	Pass getPass(Integer passId) throws InvalidInputException;
 	
-	public List<Pass> getAllPasses();
+	public List<Pass> getPassData();
 	
 	public void add(Pass pass);
 	

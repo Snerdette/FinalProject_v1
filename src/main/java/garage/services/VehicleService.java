@@ -8,7 +8,7 @@ public interface VehicleService {
 
 	Vehicle getVehicle(Integer vehicleId) throws InvalidInputException;
 	
-	public List<Vehicle> getAllVehicles();
+	public List<Vehicle> getVehicleData();
 	
 	public void add(Vehicle vehicle);
 	

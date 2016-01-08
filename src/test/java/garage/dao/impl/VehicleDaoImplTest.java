@@ -44,7 +44,7 @@ public class VehicleDaoImplTest {
 			when(mockEm.createQuery(anyString(), eq(Vehicle.class))).thenReturn(mockedTypedQuery);
 			when(mockedTypedQuery.getResultList()).thenReturn(expected);
 			
-			target.getAllVehicles();
+			target.getVehicleData();
 			
 			verify(mockedTypedQuery, times(1)).getResultList();		
 		}

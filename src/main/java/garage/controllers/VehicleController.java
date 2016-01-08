@@ -24,8 +24,8 @@ public class VehicleController {
 	}
 	
 	@RequestMapping(value="/vehicle", method=RequestMethod.GET)
-	public List<Vehicle> getAllVehicles(){
-		return vehicleService.getAllVehicles();
+	public List<Vehicle> getVehicleData(){
+		return vehicleService.getVehicleData();
 	}
 	
 	@RequestMapping(value="/vehicle/{id}", method=RequestMethod.GET)

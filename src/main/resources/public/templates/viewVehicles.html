@@ -1,14 +1,28 @@
 <div class="displayBox" ng-app="myApp">
-	<div class="container-fluid" ng-controller="vehicleController as vehicle" id="vehicleContent" >
-	Vehicle: 
-		<div ng-repeat="vehicle in vehicleList" class="displayVehicle row col-md-8">
+	<div class="subHeader">Vehicles</div>
+	<div class="displayBox">
+	<div id="vehicles_content" class="container" ng-controller="vehicleController as vehicle">
+	<div ng-repeat="vehicle in vehicleList" class="displayVehicle row" class="col-md-12">
+		<div class="col-md-3">
 			<button type="submit" data-ng-click="deleteVehicle(vehicle.id)">Delete Vehicle</button>
-			<button type="button" data-ng-click="getVehicleData(vehicle.id)">Edit Vehicle</button>		
-			ID: {{vehicle.id}}, 
-			Make: {{vehicle.expDate}}
-			Model: {{vehicle.customer}}
-			Color: {{vehicle.vehicle}}
-			Year: {{vehicle.year}}
+			<button type="button" data-ng-click="getVehicleData(vehicle.id)">Edit Vehicle</button>
+		</div>	
+		<div class="col-md-3">	
+			<h3>ID:</h3> <h4>{{vehicle.id}}</h4>
+		</div> 
+		<div class="col-md-3">	
+			<h3>Make:</h3> <h4>{{vehicle.expDate}}</h4>
+			<h3>Model:</h3> <h4>{{vehicle.customer}}</h4>
+		</div>
+		<div class="col-md-3">	
+			<h3>Color:</h3> <h4>{{vehicle.vehicle}}</h4>
+			<h3>Year:</h3> <h4>{{vehicle.year}}</h4>
+		</div>
+		<div class="col-md-3">	
+			<h3>Plate Number:</h3> <h4>{{vehicle.plateNumber}}</h4>
+			<h3>Plate State:</h3> <h4>{{vehicle.plateState}}</h4>
 		</div>
 	</div>
-</div>>
+	</div>
+</div>
+</div>

@@ -51,15 +51,15 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 			vehicle.color = $scope.vehicle.color;
 			vehicle.plateNumber = $scope.vehicle.plateNumber;
 			vehicle.plateState = $scope.vehicle.plateState;
-			passFactory.createPass(pass).then(
+			vehicleFactory.createVehicle(vehicle).then(
 				function(success){
-					console.log("Success Creating Pass");
-					$scope.createPassResult = success
-					$state.go("viewPasss");
+					console.log("Success Creating Vehicles");
+					$scope.createVehicleResult = success
+					$state.go("viewVehicles");
 				},
 				function(error){
-					console.log("Error Creating Pass");
-					$scope.createPassResult = error;
+					console.log("Error Creating Vehicle");
+					$scope.createVehicleResult = error;
 				}
 			);
 		}
@@ -71,7 +71,7 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 				function(success){
 					$scope.deleteVehicleResult = success
 					console.log("success deleting Vehicle");
-					$state.go("dashboard", {}, {reload:true});
+					$state.go("viewVehicles", {}, {reload:true});
 				},
 				function(error){
 					$scope.deleteVehicleResult = error;
@@ -82,6 +82,7 @@ angular.module('myApp').controller('vehicleController', ['$scope', '$state', 've
 	
 	//Grabbing Vehicle Data for Edit vehicle Page.
 	$scope.getVehicleData = function(vehicle){
+		console.log(vehicle);
 		$state.go("editVehicle", {vehicle: vehicle});
 	}
 	

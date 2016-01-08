@@ -16,7 +16,7 @@ public class Vehicle {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="vehicle_id")
+	/*@Column(name="vehicle_id")*/
 	public  Integer id;
 	
 	@ManyToOne/*(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)*/

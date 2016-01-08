@@ -105,7 +105,7 @@
 			controller: 'editVehicleController',
 			resolve: {
 				aVehicle: function(vehicleFactory, $stateParams) {
-					return vehicleFactory.getVehicle($stateParams.customer);
+					return vehicleFactory.getVehicle($stateParams.vehicle);
 				}
 			}
 		};

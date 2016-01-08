@@ -48,7 +48,7 @@ angular.module('myApp').controller('editVehicleController', ['$scope', '$state',
 				function(success){
 					$scope.updateVehicleResult = success.data;
 					console.log("success updating Vehicle");
-					$state.go("dashboard");
+					$state.go("viewVehicles");
 				},
 				function(error){
 					$scope.updateVehicleResult = error;

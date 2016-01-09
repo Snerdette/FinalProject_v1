@@ -28,7 +28,6 @@ public class MakeDaoImpl implements MakeDao{
 				.getResultList();
 	}
 	
-	//need to grab list of powers from linking table Make_Power where Make.id = Make_Power.makeId
 	@Override
 	public Make getMakeById(Integer makeId) {
 		return em.createQuery("SELECT e FROM make e WHERE e.make_id = :id", Make.class)

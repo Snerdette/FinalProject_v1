@@ -8,6 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import garage.dao.ModelDao;
+import garage.entities.Make;
 import garage.entities.Model;
 import garage.services.InvalidInputException;
 import garage.services.ModelService;
@@ -42,5 +43,15 @@ public class ModelServiceImpl implements ModelService {
 		return modelDao.getModelById(modelId);
 	}
 
+	@Override
+	public List<Model> getModelsForMake(Integer makeId) throws InvalidInputException {
+		List<Model> model = modelDao.getModelsForMake(makeId);
+		List<Model> makesModels = new ArrayList<>();
+		
+			for (Model e : model){
+				makesModels.add(e);
+			}
+		return makesModels;
+	}
 
 }

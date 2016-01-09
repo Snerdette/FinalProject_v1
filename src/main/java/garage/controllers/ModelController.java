@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import garage.entities.Make;
 import garage.entities.Model;
 import garage.services.ModelService;
 import garage.services.InvalidInputException;
@@ -31,6 +32,11 @@ public class ModelController {
 	@RequestMapping(value="/model/{id}", method=RequestMethod.GET)
 	public Model getModelById(@PathVariable Integer id)throws InvalidInputException{
 		return modelService.getModelById(id);
+	}
+	
+	@RequestMapping(value="/model/make_id/{makeId}", method=RequestMethod.GET)
+	public List<Model> getModelsForMake(@PathVariable Integer makeId)throws InvalidInputException{
+		return modelService.getModelsForMake(makeId);
 	}
 
 }

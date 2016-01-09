@@ -19,7 +19,13 @@ public class Model {
 	@Column(name="model_id")
 	public  Integer id;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+	
+	/*@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+	@JoinColumn(name="make_id")
+	public Make make;*/
+	
+	//List of Customers that this pass belongs to. Many passes can be held by a customer.
+	@ManyToOne (cascade = CascadeType.PERSIST)
 	@JoinColumn(name="make_id")
 	public Make make;
 	

@@ -8,7 +8,7 @@ angular.module('myApp').controller('vehicleController',
 	$scope.vehicleEditData = {};
 	$scope.makeList = [];
 	$scope.modelList = [];
-	$scope.vehicleModelList = [];
+	$scope.modelsForMake = [];
 	
 	//Gets The Data of vehicles.
 	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(
@@ -24,14 +24,14 @@ angular.module('myApp').controller('vehicleController',
 	
 	$scope.onChange = function(makeId){
 		console.log(makeId);
-		modelFactory.getVehicleModelList(makeId).then(
+		modelFactory.getModelsForMake(makeId).then(
 				function(success){
-					$scope.vehicleModelList = success.data;
-					console.log("Success retrieving vehicleModelList" + vehicleModelList);
+					$scope.modelsForMake = success.data;
+					console.log(success.data);
 				},
 				function(error){
-					$scope.vehicleModelList = error;
-					console.log("Error retrieving models for make" + makeId);
+					$scope.modelsForMake = error;
+					console.log("Error retrieving models for make " + makeId);
 				})
 		
 	}

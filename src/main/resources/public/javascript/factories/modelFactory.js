@@ -7,8 +7,8 @@ angular.module('myApp').factory('modelFactory', ['$http', function($http){
 		getModel: function(model){
 			return $http.get('/model/' + model);
 		},
-		getVehicleModelList: function(makeId){
-			return $http.get('/model/make_id' + makeId);
+		getModelsForMake: function(makeId){
+			return $http.get('/model/make_id/' + makeId);
 		}
 	}
 }])

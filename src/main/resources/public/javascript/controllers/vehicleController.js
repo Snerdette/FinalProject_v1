@@ -14,7 +14,7 @@ angular.module('myApp').controller('vehicleController',
 	$scope.getAllVehicles = vehicleFactory.getAllVehicles().then(
 			function(success){
 				$scope.vehicleList = success.data;
-				console.log("Success retrieving VehicleList");
+				console.log(success.data);
 			},
 			function(error){
 				$scope.vehicleList = error;
@@ -69,7 +69,7 @@ angular.module('myApp').controller('vehicleController',
 	$scope.createVehicle = function(vehicle){
 		if(isValid){
 			/*vehicle.make = $scope.vehicle.make;*/
-			vehicle.model = $scope.make.model;
+			vehicle.model = $scope.vehicle.model;
 			vehicle.color = $scope.vehicle.color;
 			vehicle.plateNumber = $scope.vehicle.plateNumber;
 			vehicle.plateState = $scope.vehicle.plateState;

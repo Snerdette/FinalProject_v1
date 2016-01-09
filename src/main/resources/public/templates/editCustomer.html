@@ -1,6 +1,5 @@
-<div class="container-fluid" ng-app="myApp">
+<div class="container-fluid col-md-10 displayBox" ng-app="myApp" controller="editCustomerController as edit">
 	<div class="subheader">Edit a Pilot</div>
-	<div class="displaybox" controller="editCustomerController as edit">
 		<form class="form-horizontal" role="form" ng-submit="updateCustomer(customer)">
 			<div class="form-group">
 				<div class="col-md-3">
@@ -33,5 +32,4 @@
 				</div>
 			</div>
 		</form>
-	</div>
 </div>

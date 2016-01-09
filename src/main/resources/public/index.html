@@ -38,9 +38,9 @@
 
 </head>
 <body ng-app="myApp">
-	<div class="container-fluid">
+	<div class="container-fluid"> 
 	  <h1><span>Space Port</span></h1>  <h2><span>Dashboard</span></h2>
-	  <aside>
+	  <div class="col-md-2 navbar">
 		  <ul>
 		    <li><a ui-sref="createPass">Create Pass</a></li>
 		    <li><a ui-sref="viewPasses">View Passes</a></li>
@@ -49,11 +49,8 @@
 		    <li><a ui-sref="createVehicle">Create Ship</a></li>
 			<li><a ui-sref="viewVehicles">View Ships</a></li>
 		  </ul>
-	  </aside>
-	
-		<div class="col-md-12">
-			 <section ui-view></section>
-		</div>
-	</div>
+	  </div>
+	 	<section ui-view></section>
+	 </div> 
 </body>
 </html>

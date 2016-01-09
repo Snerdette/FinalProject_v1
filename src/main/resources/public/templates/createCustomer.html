@@ -1,38 +1,32 @@
-<div class="container-fluid" ng-app="myApp">
-	<div class="displayBox" ng-controller="customerController as customer">
-		<div class="subheader">Register a Pilot</div>
-		<form class="form-horizontal" role="form" ng-submit="createCustomer(customer)">
-			<div class="form-group">
-				<div class="col-md-3">
-					<label class="control-label">First Name:</label><br>
-					<input type="text" ng-model="customer.firstName" required>
-					<span ng-show="frm.customer.firstName.$dirty && frm.customer.firstName.$error.required">Last Name is Required!</span>
-				</div>
-				<div class="col-md-3">
-					<label class="control-label">Last Name:</label><br>
-					<input type="text" ng-model="customer.lastName" required>
-					<span ng-show="frm.customer.lastName.$dirty && frm.customer.lastName.$error.required">Last Name is Required!</span>
-				</div>
-				<div class="col-md-3">
-					<label class="control-label">Email:</label><br>
-					<input type="email" name="email" ng-model="customer.email" required>
-					<span ng-show="frm.email.$dirty && frm.email.$error.required">Email Required!</span>
-					<span ng-show="frm.email.$dirty && frm.email.$error.email">Email is Invalid!</span>
-				</div>
-				<div class="col-md-3">
-					<label class="control-label">Phone:</label><br>
-					<p><input ng-model="phone" ui-mask="{{mask1}}"/></p>
-
-
-				</div>
-				<div class="modal-footer">
-					<div class="col-md-3 col-md-offset-8 control-label">
-						<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">Save
-							<!-- <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> -->
-						</button>
-					</div>
-				</div>
+<div class="container-fluid displayBox col-md-10" ng-app="myApp" ng-controller="customerController as customer">
+	<div class="subheader">Register a Pilot</div>
+	<form class="form-horizontal" role="form" ng-submit="createCustomer(customer)">
+		<div class="col-md-3">
+			<label class="control-label">First Name:</label><br>
+			<input type="text" ng-model="customer.firstName" required>
+			<span ng-show="frm.customer.firstName.$dirty && frm.customer.firstName.$error.required">Last Name is Required!</span>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Last Name:</label><br>
+			<input type="text" ng-model="customer.lastName" required>
+			<span ng-show="frm.customer.lastName.$dirty && frm.customer.lastName.$error.required">Last Name is Required!</span>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Email:</label><br>
+			<input type="email" name="email" ng-model="customer.email" required>
+			<span ng-show="frm.email.$dirty && frm.email.$error.required">Email Required!</span>
+			<span ng-show="frm.email.$dirty && frm.email.$error.email">Email is Invalid!</span>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Phone:</label><br>
+			<input ng-model="phone" ui-mask="{{mask1}}"/>
+		</div>
+		<div class="modal-footer">
+			<div class="col-md-3 col-md-offset-8 control-label">
+				<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
+					Save
+				</button>
 			</div>
-		</form>
-	</div>
+		</div>
+	</form>
 </div>

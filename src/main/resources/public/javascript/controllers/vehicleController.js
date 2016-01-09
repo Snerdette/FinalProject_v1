@@ -32,11 +32,13 @@ angular.module('myApp').controller('vehicleController',
 				function(error){
 					$scope.modelsForMake = error;
 					console.log("Error retrieving models for make " + makeId);
-				})
+				}
+				);
 		
-	}
-	/*//Gets Model Data
-	$scope.getAllModels = modelFactory.getAllModels().then(
+	};
+	//Gets Model Data
+	$scope.getAllModels = function() {
+		modelFactory.getAllModels().then(
 			function(success){
 				$scope.modelList = success.data;
 				console.log("Success retrieving ModelList");
@@ -45,10 +47,13 @@ angular.module('myApp').controller('vehicleController',
 				$scope.modelList = error;
 				console.log("Error retrieving ModelList");
 			}
-	);*/
+	);
+	};
 	
 	//Gets Make Data
-	$scope.getAllMakes = makeFactory.getAllMakes().then(
+	$scope.getAllMakes = function(){
+		makeFactory.getAllMakes().then(
+	
 			function(success){
 				$scope.makeList = success.data;
 				console.log("Success retrieving MakeList");
@@ -58,6 +63,7 @@ angular.module('myApp').controller('vehicleController',
 				console.log("Error retrieving MakeList");
 			}
 	);
+	};
 	
 	//Creating a Vehicle.
 	$scope.createVehicle = function(vehicle){

@@ -1,4 +1,5 @@
-angular.module('myApp').controller('editPassController', ['$scope', '$state', 'customerFactory', 'vehicleFactory', 'passFactory', 'aPass',  function($scope, $state, customerFactory, vehicleFactory, passFactory, aPass){
+angular.module('myApp').controller('editPassController', 
+		['$scope', '$state', 'customerFactory', 'vehicleFactory', 'passFactory', 'aPass',  function($scope, $state, customerFactory, vehicleFactory, passFactory, aPass){
 	
 	$scope.pass = aPass.data;
 	$scope.customerList = [];
@@ -9,6 +10,7 @@ angular.module('myApp').controller('editPassController', ['$scope', '$state', 'c
 	
 	//After Pass is edited, PUT data to Database
 	$scope.updatePass = function(pass){
+		console.log(pass);
 		passFactory.updatePass(pass.id, pass).then(
 				function(success){
 					$scope.updatePassResult = success.data;

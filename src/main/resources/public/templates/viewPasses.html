@@ -8,7 +8,8 @@
 				<button class="itemButton" type="submit" data-ng-click="deletePass(pass.id)">Delete</button>
 				<button class="itemButton" type="button" data-ng-click="getPassData(pass.id)">Edit</button>
 			</div>
-			<div class="col-md-2">	
+			<div class="col-md-2">
+				<h5>Price:</h5> <p>{{pass.price | currency:"USD$":0}}</p>	
 				<h5>Expiration Date:</h5> <p>{{pass.expDate}}</p>
 			</div> 
 			<div class="col-md-2">

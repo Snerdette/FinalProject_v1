@@ -3,7 +3,7 @@
 	<form class="form-horizontal" role="form" ng-submit="createPass(pass)">
 		<div class="col-md-3">
 			<label class="control-label">Price: </label> 
-			<input ng-model="pass.price" class="form-control" type="number" min="0">
+			<input ng-model="pass.price" class="form-control" type="number" min="0" aria-label="amount" ng-model-options="{updateOn: 'blur'}" />{{price | currency:"USD$":0}}
 		</div>
 		<div class="col-md-3">
 			<label class="control-label">Customer: </label> 
@@ -17,8 +17,9 @@
 		</div>
 		<div class="col-md-3">
 			<label class="control-label">Expiration Date: </label> 
-			<input type="text" ng-model="pass.expDate" maxlength="10" placeholder="JJ/MM/AAAA" />
+			<input type="date" ng-model="pass.expDate" maxlength="10" placeholder="JJ/MM/AAAA" ng-model-options=" {getterSetter: true}"/>
 		</div>
+		<p>{{pass}}</p>
 		<div class="modal-footer">
 			<div class="col-md-1 col-md-offset-8 control-label">
 				<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">

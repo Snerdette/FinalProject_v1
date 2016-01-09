@@ -1,5 +1,6 @@
 angular.module('myApp').controller('passController', ['$scope', '$state', 'passFactory', 'customerFactory', 'vehicleFactory', function($scope, $state, passFactory, customerFactory, vehicleFactory){
 	
+	$scope.price = 0.00;
 	$scope.pass = {};
 	var isValid = true;
 	$scope.isEditing = false;
@@ -7,6 +8,7 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 	$scope.passEditData = {};
 	$scope.customerList = [];
 	$scope.vehicleList = [];
+	$scope.expDate = new Date($scope.expDate);
 	
 	//Gets The List of passes.
 	$scope.getAllPasses = passFactory.getAllPasses().then(
@@ -89,5 +91,11 @@ angular.module('myApp').controller('passController', ['$scope', '$state', 'passF
 				}
 		);
 	};
+	
+	/*webshims.setOptions('form-ext', {
+		replaceUI: 'auto',
+		types: 'number'
+	});
+	webshims.pollyfill('forms forms-ext');*/
 
 }]);

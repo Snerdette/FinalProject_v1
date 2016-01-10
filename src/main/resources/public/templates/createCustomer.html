@@ -3,27 +3,27 @@
 	<form class="form-horizontal" role="form" ng-submit="createCustomer(customer)">
 		<div class="col-md-3">
 			<label class="control-label">First Name:</label><br>
-			<input type="text" ng-model="customer.firstName" required>
+			<input id="firstName" type="text" ng-model="customer.firstName" required>
 			<span ng-show="frm.customer.firstName.$dirty && frm.customer.firstName.$error.required" ng-model-options="{updateOn: 'blur'}" >Last Name is Required!</span>
 		</div>
 		<div class="col-md-3">
 			<label class="control-label">Last Name:</label><br>
-			<input type="text" ng-model="customer.lastName" required>
+			<input id="firstName" type="text" ng-model="customer.lastName" required>
 			<span ng-show="frm.customer.lastName.$dirty && frm.customer.lastName.$error.required" ng-model-options="{updateOn: 'blur'}" >Last Name is Required!</span>
 		</div>
 		<div class="col-md-3">
 			<label class="control-label">Email:</label><br>
-			<input type="email" name="email" ng-model="customer.email" required ng-model-options="{debounce: {'default':500, 'blur':0}}" />
+			<input id="email" type="email" name="email" ng-model="customer.email" required ng-model-options="{debounce: {'default':500, 'blur':0}}" />
 			<span ng-show="frm.email.$dirty && frm.email.$error.required">Email Required!</span>
 			<span ng-show="frm.email.$dirty && frm.email.$error.email">Email is Invalid!</span>
 		</div>
 		<div class="col-md-3">
 			<label class="control-label">Phone:</label><br>
-			<input ng-model="phone" ui-mask="{{mask1}}" ng-model-options="{debounce: {'default':500, 'blur':0}}" />
+			<input id="phone" ng-model="phone" ui-mask="{{mask1}}" ng-model-options="{debounce: {'default':500, 'blur':0}}" />
 		</div>
 		<div class="modal-footer">
 			<div class="col-md-3 col-md-offset-8 control-label">
-				<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
+				<button id="submit" ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
 					Save
 				</button>
 			</div>

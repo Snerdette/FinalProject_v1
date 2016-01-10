@@ -3,35 +3,35 @@
 	<form class="form-horizontal" role="form" ng-submit="createVehicle(vehicle)">
 		<div class="col-md-2">
 			<label class="control-label">Year: </label> 
-			<input ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016">
+			<input id="year" ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016">
 		</div>
 		<div class="col-md-2">
 			<label class="control-label">Make: </label> 
-			<select ng-model="make" class="form-control" ng-options="make as make.name for make in makeList" ng-change="onChange(make.id)">
+			<select id="make" ng-model="make" class="form-control" ng-options="make as make.name for make in makeList" ng-change="onChange(make.id)">
 				<option value="">Select Make</option>
 			</select>
 		</div>
 		<div class="col-md-2">
 			<label class="control-label">Model: </label> 
-			<select ng-model="vehicle.model" class="form-control" ng-options="model as model.name for model in modelsForMake">
+			<select id="model" ng-model="vehicle.model" class="form-control" ng-options="model as model.name for model in modelsForMake">
 				<option value="">Select Model</option>
 			</select>
 		</div>
 		<div class="col-md-2">
 			<label class="control-label">Plate Number: </label> 
-			<input ng-model="vehicle.plateNumber" class="form-control" type="text" placeholder="Plate Number">
+			<input id="plateNumber" ng-model="vehicle.plateNumber" class="form-control" type="text" placeholder="Plate Number">
 		</div>
 		<div class="col-md-2">
 			<label class="control-label">Plate State: </label> 
-			<input ng-model="vehicle.plateState" class="form-control" type="text" placeholder="Plate State">
+			<input id="plateState" ng-model="vehicle.plateState" class="form-control" type="text" placeholder="Plate State">
 		</div>
 		<div class="col-md-2">
 			<label class="control-label">Color: </label> 
-			<input ng-model="vehicle.color" class="form-control" type="text">
+			<input id="color" ng-model="vehicle.color" class="form-control" type="text">
 		</div>
 		<div class="modal-footer">
 			<div class="col-md-3 col-md-offset-8 control-label">
-				<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
+				<button id="submit" ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
 					Save
 				</button>
 			</div>

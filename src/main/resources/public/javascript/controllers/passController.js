@@ -93,5 +93,9 @@ angular.module('myApp').controller('passController',
 				}
 		);
 	};
+	
+	$scope.submitPass = function(){
+		expDate.pattern
+	}
 
 }]);

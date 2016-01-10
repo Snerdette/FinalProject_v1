@@ -1,27 +1,53 @@
 <div class="container-fluid displayBox col-md-10" ng-app="myApp" controller="passController as pass">
 	<div class="subheader">Sell a Pass</div>
 	<form class="form-horizontal" role="form" ng-submit="createPass(pass)">
-		<div class="col-md-3">
+		<div class="col-md-2">
+			<label class="control-label">Type</label>
+			<select ng-model="pass.type" class="form-control" name="type" required="">
+				<option value="">Select Type</option>
+				<option value="hour">Hour Pass</option>
+				<option value="day">Day Pass</option>
+				<option value="week">Week Pass</option>
+				<option value="month">Month Pass</option>
+				<option value="year">Year Pass</option>
+			</select>
+		</div>
+		<div ng-show="form.submitted || form.type.$touched">
+			<div ng-show="form.type.$error.required">Please Select a Type</div>
+		</div>
+		<div class="col-md-1">
 			<label class="control-label">Price: </label> 
-			<input ng-model="pass.price" />
+			<input type="number" step="0.01" ng-model="pass.price" class="form-control" placeholder="$29.99"  ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" name="price" required/>
+			<span>Is a valid decimal? {{myForm.myDecimal.$valid}}</span>
+			<div role="alert" ng-show="form.submitted || form.price.$touched">
+				<span ng-show="form.price.$error.required">Price is Required!</span>
+				<span ng-show="form.price.$error.price">Invalid Price Format!</span>
+			</div>
 		</div>
 		<div class="col-md-2">
-			<label class="control-label">Customer: </label> 
+			<label class="control-label">Captain: </label> 
 			<select ng-model="pass.customer" class="form-control" ng-options="customer as customer.lastName for customer in customerList">
+				<option value="">Select Captain</option>
 			</select>
 		</div>
-		<div class="col-md-3">
-			<label class="control-label">Vehicle: </label> 
+		
+		<div class="col-md-2">
+			<label class="control-label">Ship: </label> 
 			<select ng-model="pass.vehicle" class="form-control" ng-options="vehicle as vehicle.make for vehicle in vehicleList">
+				<option value="">Select Ship</option>
 			</select>
 		</div>
+		
 		<div class="col-md-3">
 			<label class="control-label">Expiration Date: </label> 
 			<input type="text" ng-model="pass.expDate" placeholder="MM/DD/YYYY"/>
 		</div>
-		<p>{{pass}}</p>
 		<div class="modal-footer">
-			<div class="col-md-1 col-md-offset-8 control-label">
+			<div class="col-md-5 col-md-offset-4 control-label">
+			<p>{{pass.type}}</p>
+			<p>{{pass.price | currency:"USD$"}}</p>
+			<p>{{pass.customer.lastName}}, {{pass.customer.firstName}}</p>
+			<p>{{pass.vehicle.model.name}}</p>
 				<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
 					Save
 				</button>

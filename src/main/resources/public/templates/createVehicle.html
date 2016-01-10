@@ -8,11 +8,13 @@
 		<div class="col-md-2">
 			<label class="control-label">Make: </label> 
 			<select ng-model="make" class="form-control" ng-options="make as make.name for make in makeList" ng-change="onChange(make.id)">
+				<option value="">Select Make</option>
 			</select>
 		</div>
 		<div class="col-md-2">
 			<label class="control-label">Model: </label> 
 			<select ng-model="vehicle.model" class="form-control" ng-options="model as model.name for model in modelsForMake">
+				<option value="">Select Model</option>
 			</select>
 		</div>
 		<div class="col-md-2">

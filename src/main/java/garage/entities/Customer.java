@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity(name="customer")
 /*@Table(name="customer", schema="public")*/
@@ -20,15 +21,19 @@ public class Customer {
 	@Column(name="customer_id")
 	public  Integer id;
 	
+	@NotNull
 	@Column(name="first_name")
 	public String firstName;
 	
+	@NotNull
 	@Column(name="last_name")
 	public String lastName;
 	
+	@NotNull
 	@Column(name="email", unique=true)
 	public String email;
 	
+	@NotNull
 	@Column(name="phone", length=10)
 	public String phone;
 

@@ -1,43 +1,43 @@
-<div class="container-fluid col-md-10" ng-app="myApp">
+<div class="container-fluid displayBox col-md-10" ng-app="myApp" controller="editVehicleController as vehicle">
 	<div class="subheader">Edit a vehicle</div>
-	<div class="displayBox" controller="editVehicleController as edit">
-		<form class="form-horizontal" role="form" ng-submit="updateVehicle(vehicle)">
-			<div class="form-group">
-			{{vehicle}}
-				<div class="col-md-2">
-					<label class="control-label">Year: </label> 
-					<input ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016">
-				</div>
-				<div class="col-md-2">
-					<label class="control-label">Make: </label> 
-					<select ng-model="make" class="form-control" ng-options="make as make.name for make in makeList" ng-change="onChange(make.id)">
-					</select>
-				</div>
-				<div class="col-md-2">
-					<label class="control-label">Model: </label> 
-					<select ng-model="vehicle.model" class="form-control" ng-options="model.name for model in modelsForMake" ng-selected="vehicle.model">
-					</select>
-				</div>
-				<div class="col-md-2">
-					<label class="control-label">Plate Number: </label> 
-					<input ng-model="vehicle.plateNumber" class="form-control" type="text" placeholder="Plate Number">
-				</div>
-				<div class="col-md-2">
-					<label class="control-label">Plate State: </label> 
-					<input ng-model="vehicle.plateState" class="form-control" type="text" placeholder="Plate State">
-				</div>
-				<div class="col-md-2">
-					<label class="control-label">Color: </label> 
-					<input ng-model="vehicle.color" class="form-control" type="text">
-				</div>
-				<div class="modal-footer">
-					<div class="col-md-3 col-md-offset-8 control-label">
-						<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">Update
-								<!-- <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"><h5>Save</h5></span> -->
-						</button>
-					</div>
+	<form class="form-horizontal" role="form" ng-submit="updateVehicle(vehicle)" >
+		<div class="form-group">
+			<div class="col-md-2">
+				<label class="control-label">Year: </label> 
+				<input ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016">
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Make: </label> 
+				<select ng-model="make" class="form-control" ng-options="make as make.name for make in makeList">
+					<!-- <option value="">Select Make</option> -->
+					<!-- <option value="" ng-if="editing" selected="model.name">{{make.name}}</option> -->
+				</select>
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Model: </label> 
+				<select ng-model="model" class="form-control" ng-options="model.name for model in modelList">
+					<option value="">Select Model</option>
+					<!-- <option value="" ng-if="editing" selected="model.name">{{model.name}}</option> -->
+				</select>
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Plate Number: </label> 
+				<input ng-model="vehicle.plateNumber" class="form-control" type="text" placeholder="Plate Number">
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Plate State: </label> 
+				<input ng-model="vehicle.plateState" class="form-control" type="text" placeholder="Plate State">
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Color: </label> 
+				<input ng-model="vehicle.color" class="form-control" type="text">
+			</div>
+			<div class="modal-footer">
+				<div class="col-md-3 col-md-offset-8 control-label">
+					<button ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">Update
+					</button>
 				</div>
 			</div>
-		</form>
-	</div>
+		</div>
+	</form>
 </div>

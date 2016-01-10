@@ -15,7 +15,7 @@ angular.module('myApp').controller('editPassController',
 				function(success){
 					$scope.updatePassResult = success.data;
 					console.log("success updating Pass");
-					$state.go("dashboard");
+					$state.go("viewCustomers");
 				},
 				function(error){
 					$scope.updatePassResult = error;
@@ -59,5 +59,7 @@ angular.module('myApp').controller('editPassController',
 				console.log("Error retrieving PassList");
 			}
 	);*/
+	
+	
 	
 }]);

@@ -1,28 +1,27 @@
 package garage.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity(name="make")
-/*@Table(name="make", schema="public")*/
 public class Make {
 	
+	/**
+	 * Generates the id which is the primary key
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="make_id")
 	public  Integer id;
 	
-/*	@OneToMany(cascade = CascadeType.MERGE)
-	@JoinColumn(name="model_id")
-	public Model model;*/
-	
+	/**
+	 * Required field to add name.
+	 */
+	@NotNull
 	@Column(name="name")
 	private String name;
 

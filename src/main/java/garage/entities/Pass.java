@@ -14,34 +14,42 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Entity(name="pass")
-/*@Table(name="pass", schema="public")*/
 public class Pass {
 
+	/**
+	 * Generates the id which is the primary key
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="pass_id")
 	public  Integer id;
 	
-	@Column(name="is_active")
-	private boolean isActive;
-	
-	//Date formatting should be MM/DD/YYYY.
-	
 	/*@Pattern(regexp="(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)")*/
+	/**
+	 * Required to have a expDate, formatting should match MM/DD/YYYY.
+	 */
 	@NotNull
 	@Column(name="exp_date")
 	private String expDate;
 	
+	/**
+	 * Required to have a price, formatting should allow 2 decimals.
+	 */
 	@NotNull
 	@Column(name="price")
 	private double price;
 	
+	/**
+	 * Joins the Pass table with the Customer table via customer_id.
+	 */
 	@NotNull
 	@ManyToOne (cascade = CascadeType.MERGE)
 	@JoinColumn(name="customer_id")
 	public Customer customer;
 	
-	//List of Vehicles this Pass Might belong to, a vehicle may have many passes especially if some are expire.
+	/**
+	 * Joins the Pass table with the Vehicle table via vehicle_id.
+	 */
 	@NotNull
 	@OneToOne
 	@JoinColumn(name="vehicle_id")
@@ -57,22 +65,6 @@ public class Pass {
 	
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public boolean isActive() {
-		return isActive;
-	}
-
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
-
-	public boolean isIsActive() {
-		return isActive;
-	}
-
-	public void setIsActive(boolean isActive) {
-		this.isActive = isActive;
 	}
 
 	public String getExpDate() {

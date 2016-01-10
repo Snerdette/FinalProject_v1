@@ -23,6 +23,10 @@ public class PassServiceImpl implements PassService {
 		this.passDao = passDao;
 	}
 
+	/**
+	 * Retrieves all the Pass objects in the database.
+	 * @return List<Pass> of all passes.
+	 */
 	@Override
 	public List<Pass> getPassData() {
 		List<Pass> pass = passDao.getPassData();
@@ -34,6 +38,11 @@ public class PassServiceImpl implements PassService {
 		return allPass;
 	}
 
+	/**
+	 * Retrieves a single Pass object located by the given id.
+	 * @param id
+	 * @return a single pass
+	 */	
 	@Override
 	public Pass getPass(Integer passId) throws InvalidInputException {
 		if (passId == null || passId < 0) {
@@ -42,6 +51,9 @@ public class PassServiceImpl implements PassService {
 		return passDao.getPass(passId);
 	}
 
+	/**
+	 * Adds a new Pass object that was created through the UI.
+	 */
 	@Override
 	public void add(Pass pass) {
 		if (pass == null) {
@@ -51,6 +63,11 @@ public class PassServiceImpl implements PassService {
 		}		
 	}
 	
+	/**
+	 * Updates a Pass object to the database that was changed through the UI.
+	 * @param pass
+	 * @return 
+	 */
 	@Override
 	public void update(Pass pass) {
 		if (pass == null) {
@@ -60,6 +77,9 @@ public class PassServiceImpl implements PassService {
 		}	
 	}
 	
+	/**
+	 * Deletes a Pass object from the database located by the given id.
+	 */
 	@Override
 	public void delete(Integer passId) {
 		passDao.delete(passId);

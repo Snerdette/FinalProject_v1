@@ -3,32 +3,35 @@ package garage.entities;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity(name="model")
-/*@Table(name="model", schema="public")*/
 public class Model {
 
+	/**
+	 * Generates the id which is the primary key
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="model_id")
 	public  Integer id;
 	
-	
-	/*@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
-	@JoinColumn(name="make_id")
-	public Make make;*/
-	
-	//List of Customers that this pass belongs to. Many passes can be held by a customer.
+	/**
+	 * Joins the Model table with the Make table via make_id.
+	 */
 	@ManyToOne (cascade = CascadeType.PERSIST)
 	@JoinColumn(name="make_id")
 	public Make make;
 	
+	/**
+	 * Required field to add name.
+	 */
+	@NotNull
 	@Column(name="name", unique=true)
 	public String name;
 

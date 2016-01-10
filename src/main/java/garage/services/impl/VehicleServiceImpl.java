@@ -24,6 +24,10 @@ public class VehicleServiceImpl implements VehicleService{
 		this.vehicleDao = vehicleDao;
 	}
 
+	/**
+	 * Retrieves all the Vehicle objects in the database.
+	 * @return List<Vehicle> of all vehicles.
+	 */
 	@Override
 	public List<Vehicle> getVehicleData() {
 		List<Vehicle> vehicle = vehicleDao.getVehicleData();
@@ -35,6 +39,11 @@ public class VehicleServiceImpl implements VehicleService{
 		return allVehicle;
 	}
 
+	/**
+	 * Retrieves a single Vehicle object located by the given id.
+	 * @param id
+	 * @return a single vehicle
+	 */	
 	@Override
 	public Vehicle getVehicle(Integer vehicleId) throws InvalidInputException {
 		if (vehicleId == null || vehicleId < 0) {
@@ -43,6 +52,9 @@ public class VehicleServiceImpl implements VehicleService{
 		return vehicleDao.getVehicle(vehicleId);
 	}
 
+	/**
+	 * Adds a new Vehicle object that was created through the UI.
+	 */
 	@Override
 	public void add(Vehicle vehicle) {
 		if (vehicle == null) {
@@ -52,6 +64,11 @@ public class VehicleServiceImpl implements VehicleService{
 		}		
 	}
 	
+	/**
+	 * Adds a new Vehicle object to the database that was created through the UI.
+	 * @param vehicle
+	 * @return 
+	 */
 	@Override
 	public void update(Vehicle vehicle) {
 		if (vehicle == null) {
@@ -61,6 +78,9 @@ public class VehicleServiceImpl implements VehicleService{
 		}	
 	}
 	
+	/**
+	 * Deletes a Vehicle object from the database located by the given id.
+	 */
 	@Override
 	public void delete(Integer vehicleId) {
 		vehicleDao.delete(vehicleId);

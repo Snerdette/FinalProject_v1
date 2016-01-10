@@ -24,6 +24,10 @@ public class CustomerServiceImpl implements CustomerService {
 		this.customerDao = customerDao;
 	}
 
+	/**
+	 * Retrieves all the Customer objects in the database.
+	 * @return List<Customer> of all customers.
+	 */
 	@Override
 	public List<Customer> getCustomerData() {
 		List<Customer> customer = customerDao.getCustomerData();
@@ -35,6 +39,11 @@ public class CustomerServiceImpl implements CustomerService {
 		return allCustomer;
 	}
 
+	/**
+	 * Retrieves a single Customer object located by the given id.
+	 * @param id
+	 * @return a single customer
+	 */	
 	@Override
 	public Customer getCustomer(Integer id) throws InvalidInputException {
 		if (id == null || id < 0) {
@@ -43,6 +52,10 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.getCustomer(id);
 	}
 
+	/**
+	 * Adds a new Customer object to the database that was created through the UI.
+	 * @param customer
+	 */
 	@Override
 	public void add(Customer customer) {
 		if (customer == null) {
@@ -52,6 +65,10 @@ public class CustomerServiceImpl implements CustomerService {
 		}		
 	}
 	
+	/**
+	 * Updates a Customer object to the database that was changed through the UI.
+	 * @param customer
+	 */
 	public void update(Customer customer) {
 		if (customer == null) {
 			throw new DataIntegrityViolationException("Customer number is null");
@@ -60,6 +77,9 @@ public class CustomerServiceImpl implements CustomerService {
 		}	
 	}
 	
+	/**
+	 * Deletes a Customer object from the database located by the given id.
+	 */
 	@Override
 	public void delete(Integer customerId) {
 		customerDao.delete(customerId);

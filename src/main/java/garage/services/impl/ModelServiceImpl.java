@@ -24,6 +24,10 @@ public class ModelServiceImpl implements ModelService {
 		this.modelDao = modelDao;
 	}
 
+	/**
+	 * Retrieves all the Model objects in the database.
+	 * @return List<Model> of all models.
+	 */
 	@Override
 	public List<Model> getModelData() {
 		List<Model> model = modelDao.getModelData();
@@ -35,6 +39,11 @@ public class ModelServiceImpl implements ModelService {
 		return allModel;
 	}
 
+	/**
+	 * Retrieves a single Model object located by the given id.
+	 * @param id
+	 * @return a single model
+	 */	
 	@Override
 	public Model getModelById(Integer modelId) throws InvalidInputException {
 		if (modelId == null || modelId < 0) {
@@ -43,6 +52,10 @@ public class ModelServiceImpl implements ModelService {
 		return modelDao.getModelById(modelId);
 	}
 
+	/**
+	 * Retrieves all the Model objects in the database with the matching FK makeId.
+	 * @return List<Model> of all models for the FK makeId.
+	 */
 	@Override
 	public List<Model> getModelsForMake(Integer makeId) throws InvalidInputException {
 		List<Model> model = modelDao.getModelsForMake(makeId);

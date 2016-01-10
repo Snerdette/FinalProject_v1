@@ -22,13 +22,21 @@ public class ModelDaoImpl implements ModelDao{
 		this.em = em;
 	}
 	
+	/**
+	 * Returns all the Model objects in the database
+	 * @return List<Model> of all models.
+	 */
 	@Override
 	public List<Model> getModelData() {
 		return em.createQuery("SELECT t FROM model t", Model.class)
 				.getResultList();
 	}
 	
-	//need to grab list of powers from linking table Model_Power where Model.id = Model_Power.modelId
+	/**
+	 * Retrieves a single Model object.
+	 * @param id
+	 * @return a single model
+	 */
 	@Override
 	public Model getModelById(Integer modelId) {
 		return em.createQuery(("SELECT e FROM model e WHERE e.id = :id"), Model.class)
@@ -36,6 +44,10 @@ public class ModelDaoImpl implements ModelDao{
 				.getSingleResult();
 	}
 
+	/**
+	 * Returns all the Model objects in the database with the FK of makeId.
+	 * @return List<Model> of all models with matching FK makeId.
+	 */
 	@Override
 	public List<Model> getModelsForMake(Integer makeId) {
 		return em.createQuery("SELECT mo FROM model mo WHERE mo.make.id = :id", Model.class)

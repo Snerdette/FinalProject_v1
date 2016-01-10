@@ -22,12 +22,21 @@ public class MakeDaoImpl implements MakeDao{
 		this.em = em;
 	}
 	
+	/**
+	 * Returns all the Make objects in the database
+	 * @return List<Make> of all makes.
+	 */
 	@Override
 	public List<Make> getMakeData() {
 		return em.createQuery("SELECT t FROM make t", Make.class)
 				.getResultList();
 	}
 	
+	/**
+	 * Retrieves a single Make object.
+	 * @param id
+	 * @return a single make
+	 */
 	@Override
 	public Make getMakeById(Integer makeId) {
 		return em.createQuery("SELECT e FROM make e WHERE e.make_id = :id", Make.class)

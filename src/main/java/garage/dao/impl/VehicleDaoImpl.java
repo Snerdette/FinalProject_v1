@@ -22,23 +22,39 @@ public class VehicleDaoImpl implements VehicleDao {
 		this.em = em;
 	}
 	
+	/**
+	 * Returns all the Vehicle objects in the database
+	 * @return List<Vehicle> of all vehicles.
+	 */
 	@Override
 	public List<Vehicle> getVehicleData() {
 		return em.createQuery("SELECT t FROM vehicle t", Vehicle.class)
 				.getResultList();
 	}
 	
+	/**
+	 * Adds a new Vehicle object that was created through the UI.
+	 * @param vehicle added to database
+	 */
 	@Override
 	public void add(Vehicle vehicle) {
 		em.persist(vehicle);
 	}
 	
+	/**
+	 * Updates a Vehicle object with changes sent from the UI.
+	 * @param vehicle.
+	 */
 	@Override
 	public void update(Vehicle vehicle) {
 		em.merge(vehicle);
 	}
 	
-	//need to grab list of powers from linking table Vehicle_Power where Vehicle.id = Vehicle_Power.vehicleId
+	/**
+	 * Retrieves a single Vehicle object.
+	 * @param id
+	 * @return a single vehicle
+	 */
 	@Override
 	public Vehicle getVehicle(Integer vehicleId) {
 		return em.createQuery("SELECT e FROM vehicle e WHERE e.id = :id", Vehicle.class)
@@ -46,11 +62,15 @@ public class VehicleDaoImpl implements VehicleDao {
 				.getSingleResult();
 	}
 
-	@Override
+	/*@Override
 	public void delete(Vehicle vehicle) {
 		em.merge(vehicle);	
-	}
+	}*/
 	
+	/**
+	 * Deletes a Vehicle object from the database located with given id.
+	 * @param id.
+	 */
 	@Override
 	public void delete(Integer vehicleId) {
 		Vehicle vehicle = getVehicle(vehicleId);

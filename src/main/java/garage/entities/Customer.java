@@ -1,38 +1,47 @@
 package garage.entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity(name="customer")
-/*@Table(name="customer", schema="public")*/
 public class Customer {
 	
+	/**
+	 * Generates the id which is the primary key
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="customer_id")
 	public  Integer id;
 	
+	/**
+	 * Required field to add firstName.
+	 */
 	@NotNull
 	@Column(name="first_name")
 	public String firstName;
 	
+	/**
+	 * Required field to add lastName.
+	 */
 	@NotNull
 	@Column(name="last_name")
 	public String lastName;
 	
+	/**
+	 * Required field to add email.
+	 */
 	@NotNull
 	@Column(name="email", unique=true)
 	public String email;
 	
+	/**
+	 * Required field to add phone max length of 10.
+	 */
 	@NotNull
 	@Column(name="phone", length=10)
 	public String phone;

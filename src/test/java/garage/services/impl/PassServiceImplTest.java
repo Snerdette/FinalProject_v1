@@ -94,8 +94,6 @@ public class PassServiceImplTest {
 	public void testAddPassObject(){
 		Pass pass = new Pass();
 		pass.setId(2);
-		/*pass.setExpDate(mockEm.exDate);*/
-		pass.setActive(true);
 		pass.setPrice(99.99);
 		pass.setType("Weekend");
 		

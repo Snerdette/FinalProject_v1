@@ -23,6 +23,10 @@ public class MakeServiceImpl implements MakeService {
 		this.makeDao = makeDao;
 	}
 
+	/**
+	 * Retrieves all the Make objects in the database.
+	 * @return List<Make> of all makes.
+	 */
 	@Override
 	public List<Make> getMakeData() {
 		List<Make> make = makeDao.getMakeData();
@@ -34,6 +38,11 @@ public class MakeServiceImpl implements MakeService {
 		return allMake;
 	}
 
+	/**
+	 * Retrieves a single Make object located by the given id.
+	 * @param id
+	 * @return a single make.
+	 */	
 	@Override
 	public Make getMakeById(Integer makeId) throws InvalidInputException {
 		if (makeId == null || makeId < 0) {

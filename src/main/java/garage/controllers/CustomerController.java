@@ -22,29 +22,53 @@ public class CustomerController {
 	public void setCustomerService(CustomerService customerService){
 		this.customerService = customerService;
 	}
-
+	
+	/**
+	 * Retrieves all the Customer objects in the database.
+	 * @return List<Customer> of all customers.
+	 */
 	@RequestMapping(value="/customer", method=RequestMethod.GET)
 	public List<Customer> getCustomerData(){
 		return customerService.getCustomerData();
 	}
 	
+	/**
+	 * Retrieves the Customer object by the given id.
+	 * @param id
+	 * @return a single customer object
+	 * @throws InvalidInputException
+	 */
 	@RequestMapping(value="/customer/{id}", method=RequestMethod.GET)
 	public Customer getCustomer(@PathVariable Integer id)throws InvalidInputException{
 		return customerService.getCustomer(id);
 	}
 	
+	/**
+	 * Adds a Customer to that database that was created through the UI.
+	 * @param customer
+	 */
 	@RequestMapping(value="/customer", method=RequestMethod.POST)  
 	public void add(@RequestBody Customer customer) { 
 		System.out.println(customer);
 		customerService.add(customer);
 	}
 	
+	/**
+	 * Performs an update sent from the UI on the Customer Object located with the given id.
+	 * @param id
+	 * @param customer
+	 */
 	@RequestMapping(value="/customer/{id}", method=RequestMethod.PUT)
 	public void updateCustomer(@PathVariable Integer id, @RequestBody Customer customer){ 
 		customer.setId(id);
 		customerService.update(customer);
 	}
 	
+	
+	/**
+	 * Removes a Customer object from the database located with the given id.
+	 * @param id
+	 */
 	@RequestMapping(value="/customer/{id}", method=RequestMethod.DELETE)
 	public void deleteById(@PathVariable Integer id){
 		customerService.delete(id);

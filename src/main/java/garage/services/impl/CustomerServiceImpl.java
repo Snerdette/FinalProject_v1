@@ -36,11 +36,11 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer getCustomer(Integer customerId) throws InvalidInputException {
-		if (customerId == null || customerId < 0) {
+	public Customer getCustomer(Integer id) throws InvalidInputException {
+		if (id == null || id < 0) {
 			throw new InvalidInputException("customerId.NullOrNegative");
 		}
-		return customerDao.getCustomer(customerId);
+		return customerDao.getCustomer(id);
 	}
 
 	@Override

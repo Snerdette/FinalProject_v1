@@ -36,7 +36,7 @@ public class CustomerServiceImplTest {
 	}
 	
 	/**
-	 * Testing the CustomerDataServiceImpl for getting a list of all the Customeres.
+	 * Testing the CustomerDataServiceImpl for getting a list of all the Customers.
 	 */
 	@Test
 	public void testGetAllCustomeres(){
@@ -74,13 +74,13 @@ public class CustomerServiceImplTest {
 		target.setCustomerDao(mockEm);
 		Customer expected = new Customer();
 		expected.setId(null);
-		when(mockEm.getCustomer(anyInt())).thenReturn(expected);
+		when(mockEm.getCustomer(null)).thenReturn(expected);
 		Customer actual = null;
 		
 		try {
-			actual = target.getCustomer(3);
+			actual = target.getCustomer(null);
 		} catch (InvalidInputException e) {
-/*			e.printStackTrace();*/
+			e.printStackTrace();
 		}
 		assertEquals(actual, expected);	
 	}

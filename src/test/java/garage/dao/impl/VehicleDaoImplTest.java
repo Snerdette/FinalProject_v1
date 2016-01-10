@@ -37,7 +37,7 @@ public class VehicleDaoImplTest {
 	//Tests what gets called when GetVehicleData
 		@SuppressWarnings("unchecked")
 		@Test
-		public void testGetAllVehicleList(){
+		public void testGetVehicleData(){
 			List<Vehicle> expected =  new ArrayList<Vehicle>();
 			TypedQuery<Vehicle> mockedTypedQuery = mock(TypedQuery.class);
 			

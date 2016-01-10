@@ -35,9 +35,8 @@ public class Pass {
 	private boolean isActive;
 	
 	//Date formatting should be MM/DD/YYYY.
-	@Column(name="exp_date", columnDefinition="DATE")
-	@JsonFormat(pattern = "2016-01-09T08:00:00.000Z", timezone="PST")
-	private Date expDate = new Date();;
+	@Column(name="exp_date")
+	private Date expDate;
 	
 	//hoping to figure out MonetaryAmount Later.
 	@Column(name="price")

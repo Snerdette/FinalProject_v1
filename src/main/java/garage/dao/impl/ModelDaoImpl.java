@@ -42,18 +42,5 @@ public class ModelDaoImpl implements ModelDao{
 				.setParameter("id", makeId)
 				.getResultList();
 	}
-	
-/*	 session.createQuery("from model mo inner join make ma where model.make_id =:makeId");
-	 SELECT * FROM Cat INNER JOIN Owner owner on Cat.Owner = owner.name WHERE owner.name = "duke"*/
-	
-	/* *//**
-	* Gets an array of objects with a report and the associated line items.
-	* @return report and line item object.
-	*//*
-	@SuppressWarnings("unchecked")
-	public List<Model> getModelsForMake(Integer makeId){
-	return em.createQuery("FROM model l left join l.make_id")
-	.getResultList();
-	}*/
 
 }

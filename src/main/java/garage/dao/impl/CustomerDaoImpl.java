@@ -16,7 +16,7 @@ import garage.entities.Customer;
 public class CustomerDaoImpl implements CustomerDao{
 
 	@PersistenceContext
-	private EntityManager em;
+	private EntityManager em; 
 	
 	public void setEm(EntityManager em) {
 		this.em = em;

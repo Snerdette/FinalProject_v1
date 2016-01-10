@@ -4,6 +4,7 @@ angular.module('myApp').controller('vehicleController',
 	$scope.vehicle = {};
 	$scope.make = {};
 	var isValid = true;
+	var editing = false;
 	$scope.vehicleList = [];
 	$scope.vehicleEditData = {};
 	$scope.makeList = [];
@@ -104,6 +105,7 @@ angular.module('myApp').controller('vehicleController',
 	
 	//Grabbing Vehicle Data for Edit vehicle Page.
 	$scope.getVehicleData = function(vehicle){
+		editing = true;
 		console.log(vehicle);
 		$state.go("editVehicle", {vehicle: vehicle});
 	}

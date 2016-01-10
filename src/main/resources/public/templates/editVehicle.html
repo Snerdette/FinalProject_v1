@@ -4,21 +4,29 @@
 		<form class="form-horizontal" role="form" ng-submit="updateVehicle(vehicle)">
 			<div class="form-group">
 			{{vehicle}}
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<label class="control-label">Year: </label> 
 					<input ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016">
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<label class="control-label">Make: </label> 
 					<select ng-model="make" class="form-control" ng-options="make as make.name for make in makeList" ng-change="onChange(make.id)">
 					</select>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<label class="control-label">Model: </label> 
-					<select ng-model="vehicle.model" class="form-control" ng-options="model.name for model in modelsForMake">
+					<select ng-model="vehicle.model" class="form-control" ng-options="model.name for model in modelsForMake" ng-selected="vehicle.model">
 					</select>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
+					<label class="control-label">Plate Number: </label> 
+					<input ng-model="vehicle.plateNumber" class="form-control" type="text" placeholder="Plate Number">
+				</div>
+				<div class="col-md-2">
+					<label class="control-label">Plate State: </label> 
+					<input ng-model="vehicle.plateState" class="form-control" type="text" placeholder="Plate State">
+				</div>
+				<div class="col-md-2">
 					<label class="control-label">Color: </label> 
 					<input ng-model="vehicle.color" class="form-control" type="text">
 				</div>

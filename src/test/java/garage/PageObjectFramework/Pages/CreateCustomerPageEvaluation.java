@@ -20,9 +20,12 @@ public class CreateCustomerPageEvaluation extends TestPageObject{
 	
 	@Test
 	public void navigateToCreateNewCustomerPage(){
-		driver.get(URL + "/#/index");		
+		driver.get(URL + "/#/index");	
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		driver.findElement(By.id("createCustomer")).click();
-		new WebDriverWait(driver, 60);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(("http://localhost:8080/#/createCustomer"), URL );
 	}

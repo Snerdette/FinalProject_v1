@@ -1,11 +1,10 @@
 package garage.PageObjectFramework.Pages;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import garage.SeleniumFramework.TestPageObject;
@@ -19,11 +18,10 @@ public class HomePageEvaluation extends TestPageObject{
 
 	@Test
 	public void testBasicNavigationOnLoadToHomePage(){
-		driver.get(URL);
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		
-        String URL = driver.getCurrentUrl();
-        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-        Assert.assertEquals(("http://localhost:8080/#/home"), URL );
+		driver.get(URL + "/");
+		new WebDriverWait(driver, 180).until(ExpectedConditions.presenceOfElementLocated(By.className("displayBox")));
+        String actual = driver.getCurrentUrl();
+        new WebDriverWait(driver, 180).until(ExpectedConditions.presenceOfElementLocated(By.className("displayBox")));
+        Assert.assertEquals(("http://localhost:8080/#/home"), actual );
 	}
 }

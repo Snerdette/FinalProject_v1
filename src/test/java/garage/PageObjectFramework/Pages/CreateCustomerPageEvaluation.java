@@ -20,11 +20,12 @@ public class CreateCustomerPageEvaluation extends TestPageObject{
 	
 	@Test
 	public void navigateToCreateNewCustomerPage(){
-		driver.get(URL + "/#/index");	
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
-		driver.findElement(By.id("createCustomer")).click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get(URL + "/");	
+	
+		new WebDriverWait(driver, 180).until(ExpectedConditions.presenceOfElementLocated(By.id("createCustomer"))).click();
+		/*driver.findElement(By.id("createCustomer")).click();*/
+
+		new WebDriverWait(driver, 180).until(ExpectedConditions.presenceOfElementLocated(By.id("submit")));
 
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(("http://localhost:8080/#/createCustomer"), URL );
@@ -33,18 +34,6 @@ public class CreateCustomerPageEvaluation extends TestPageObject{
 	/*@Test
 	public void addNewCustomerWithValidInformation(){
 		driver.get(URL + "/#/createCustomer");
-		
-		WebElement element1 = driver.findElement(By.id("firstName"));
-		element1.sendKeys(generateString);
-		
-		WebElement element2 = driver.findElement(By.id("lastName"));
-		element2.sendKeys(generateString);
-		
-		WebElement element3 = driver.findElement(By.id("email"));
-		element3.sendKeys(generateString);
-		
-		WebElement element4 = driver.findElement(By.id("phone"));
-		element4.sendKeys(generateString);
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		

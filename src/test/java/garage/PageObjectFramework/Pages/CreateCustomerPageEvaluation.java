@@ -1,15 +1,14 @@
 package garage.PageObjectFramework.Pages;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import garage.SeleniumFramework.TestPageObject;
+import garage.SeleniumFramework.Pages.CreateCustomerPage;
 import garage.utility.SeleniumConstants;
 
 public class CreateCustomerPageEvaluation extends TestPageObject{
@@ -34,10 +33,11 @@ public class CreateCustomerPageEvaluation extends TestPageObject{
 	/*@Test
 	public void addNewCustomerWithValidInformation(){
 		driver.get(URL + "/#/createCustomer");
-		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-		new WebDriverWait(driver, 180).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button")));
+		CreateCustomerPage customer = new CreateCustomerPage(driver);
+		customer.sendKeys(By.id("firstName"), "Scotty");
+		customer.sendKeys(By.id("lastName"), "Magoo");
+		customer.sendKeys(By.id("email"), "dummy@gmail.com");
+		customer.click(By.id("submit"));
 		 
 		String aURL = driver.getCurrentUrl();
 

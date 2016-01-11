@@ -1,6 +1,6 @@
 (function() {
 	angular.module("myApp").config(appConfig).run([ '$state', function($state) {
-		$state.transitionTo('index');
+		$state.transitionTo('home');
 	} ]);
 
 	// Create Power page.
@@ -13,6 +13,14 @@
 			templateUrl : 'index.html'
 		};
 		$stateProvider.state(index);
+		
+		// Home page.									                  Home Page.
+		var home = {
+			name : 'home',
+			url : '/home',
+			templateUrl : '../templates/home.html'
+		};
+		$stateProvider.state(home);
 		
 		// viewCustomers page.												View Pages.
 		var viewCustomers = {

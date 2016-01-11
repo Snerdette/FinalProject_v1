@@ -18,7 +18,6 @@
 		<div class="col-md-1">
 			<label class="control-label">Price: </label> 
 			<input id="price" type="number" step="0.01" ng-model="pass.price" class="form-control" placeholder="$29.99"  ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" name="price" required/>
-			<span>Is a valid decimal? {{myForm.myDecimal.$valid}}</span>
 			<div role="alert" ng-show="form.submitted || form.price.$touched">
 				<span ng-show="form.price.$error.required">Price is Required!</span>
 				<span ng-show="form.price.$error.price">Invalid Price Format!</span>

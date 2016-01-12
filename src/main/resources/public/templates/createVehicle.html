@@ -3,7 +3,7 @@
 	<form class="form-horizontal" role="form" ng-submit="createVehicle(vehicle)">
 		<div class="col-md-2">
 			<label class="control-label">Year</label> 
-			<input id="year" ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016">
+			<input id="year" ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016" required>
 		</div>
 		<div class="col-md-2">
 			<label class="control-label">Class</label> 
@@ -27,7 +27,7 @@
 		</div>
 		<div class="col-md-2">
 			<label class="control-label">Color</label> 
-			<input id="color" ng-model="vehicle.color" class="form-control" type="text">
+			<input id="color" ng-model="vehicle.color" class="form-control" type="text" required>
 		</div>
 		<div class="modal-footer">
 			<div class="col-md-3 col-md-offset-8 control-label">

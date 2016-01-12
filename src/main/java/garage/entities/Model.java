@@ -32,7 +32,7 @@ public class Model {
 	 * Required field to add name.
 	 */
 	@NotNull
-	@Column(name="name", unique=true)
+	@Column(name="name")
 	public String name;
 
 	public Integer getId() {

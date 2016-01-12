@@ -109,7 +109,7 @@ li:nth-child(odd){
 	margin-left:1em;
 	margin-right:0;
 	margin-top:1em;
-	padding:1px;
+	padding:10px;
 	color: black;
 	font-size: 1.5em;
 	letter-spacing: 1px;
@@ -163,3 +163,23 @@ input.ng-invalid.ng-dirty {
 	font-size: 2em;
 	border-bottom: 2px solid black;
 }
+
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  10px;}
+
+
+/* /* add padding  */
+.left-addon input  { padding-left:  60px; } */
+
+

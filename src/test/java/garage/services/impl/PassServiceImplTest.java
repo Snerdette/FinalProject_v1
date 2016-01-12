@@ -95,7 +95,6 @@ public class PassServiceImplTest {
 		Pass pass = new Pass();
 		pass.setId(2);
 		pass.setPrice(99.99);
-		pass.setType("Weekend");
 		
 		target.add(pass);
 		verify(mockEm, times(1)).add(pass);

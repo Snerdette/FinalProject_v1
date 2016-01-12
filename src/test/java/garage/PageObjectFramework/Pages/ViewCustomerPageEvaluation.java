@@ -8,29 +8,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import garage.SeleniumFramework.TestPageObject;
 import garage.dao.CustomerDao;
-import garage.dao.PassDao;
 import garage.utility.SeleniumConstants;
 import garage.validation.CustomerServiceValidation;
-import garage.validation.PassServiceValidation;
 
-public class CreatePassPageEvaluation extends TestPageObject{
+public class ViewCustomerPageEvaluation extends TestPageObject{
 
 	public SeleniumConstants seleniumConstants = new SeleniumConstants();
 	public String URL = seleniumConstants.getUrl();
 	public String generateString = SeleniumConstants.generateString();
-	private PassServiceValidation target;
-	private PassDao mockPassDao;
+	private CustomerServiceValidation target;
+	private CustomerDao mockCustomerDao;
 	
 	@Test
-	public void navigateToCreateNewPassPage(){
+	public void navigateToViewCustomersPage(){
 		driver.get(URL + "/");	
 	
-		new WebDriverWait(driver, 180).until(ExpectedConditions.presenceOfElementLocated(By.id("createPass"))).click();
+		new WebDriverWait(driver, 180).until(ExpectedConditions.presenceOfElementLocated(By.id("viewCustomers"))).click();
 
 		new WebDriverWait(driver, 180).until(ExpectedConditions.presenceOfElementLocated(By.id("submit")));
 
         String URL = driver.getCurrentUrl();
-        Assert.assertEquals(("http://localhost:8080/#/createPass"), URL );
+        Assert.assertEquals(("http://localhost:8080/#/viewCustomers"), URL );
 	}
-	
+
 }

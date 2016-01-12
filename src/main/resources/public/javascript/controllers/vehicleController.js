@@ -1,5 +1,6 @@
 angular.module('myApp').controller('vehicleController', 
-		['$scope', '$state', 'vehicleFactory', 'makeFactory', 'modelFactory', function($scope, $state, vehicleFactory, makeFactory, modelFactory){
+		['$scope', '$state', 'vehicleFactory', 'makeFactory', 'modelFactory', 
+		 function($scope, $state, vehicleFactory, makeFactory, modelFactory){
 	
 	$scope.vehicle = {};
 	$scope.make = {};

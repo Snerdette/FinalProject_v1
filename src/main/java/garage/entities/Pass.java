@@ -54,10 +54,6 @@ public class Pass {
 	@OneToOne
 	@JoinColumn(name="vehicle_id")
 	public Vehicle vehicle;
-	
-	//Type of a pass is referencing if it is a work day, weekend, annual, monthly or day pass.
-	@Column(name="type")
-	private String type;
 
 	public Integer getId() {
 		return id;
@@ -89,14 +85,6 @@ public class Pass {
 
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public Customer getCustomer() {

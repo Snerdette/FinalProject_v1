@@ -3,7 +3,7 @@
 	<div ng-repeat="vehicle in vehicleList" class="displayVehicle row">
 		<div class="col-md-2">
 			<button class="itemButton" type="submit" data-ng-click="deleteVehicle(vehicle.id)">Delete</button>
-			<button class="itemButton" type="button" data-ng-click="getVehicleData(vehicle.id)">Edit</button>
+			<button class="itemButton editButton" type="button" data-ng-click="getVehicleData(vehicle.id)">Edit</button>
 		</div>	
 <!-- 		<div class="col-md-1">	
 			<h5>ID:</h5> <p>{{vehicle.id}}</p>

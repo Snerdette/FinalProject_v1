@@ -1,6 +1,6 @@
 angular.module('myApp').controller('editVehicleController',
-		['$scope', '$state', 'vehicleFactory', 'modelFactory', 'makeFactory' , 'aVehicle',  
-		 function($scope, $state, vehicleFactory, makeFactory, modelFactory, aVehicle){
+		['$scope', '$state', 'vehicleFactory', 'modelFactory', 'makeFactory', 'aVehicle',  
+		 function($scope, $state, vehicleFactory, modelFactory, makeFactory, aVehicle){
 	
 	$scope.vehicleEditData = {};
 	$scope.make = {};
@@ -44,12 +44,14 @@ angular.module('myApp').controller('editVehicleController',
 	
 	//Gets Make Data
 	$scope.getAllMakes = function(){
+		console.log("getAllMakes Factory Call");
 		makeFactory.getAllMakes().then(
-			function(success){
+				
+			function(success){console.log("Success.data");
 				$scope.makeList = success.data;
 				console.log("Success retrieving MakeList");
 			},
-			function(error){
+			function(error){console.log("Error makeList");
 				$scope.makeList = error;
 				console.log("Error retrieving MakeList");
 			}
@@ -70,7 +72,7 @@ angular.module('myApp').controller('editVehicleController',
 		);
 	};
 	
-	/*$scope.onChange = function(makeId){
+	$scope.onChange = function(makeId){
 		console.log(makeId);
 		modelFactory.getModelsForMake(makeId).then(
 			function(success){
@@ -83,6 +85,12 @@ angular.module('myApp').controller('editVehicleController',
 			}
 		);
 		
-	};*/
+		$scope.onLoad = function(vehicle){
+			$scope.vehicle.model = vehicle.model(modelId);
+			$scope.model.make.id = make.id;
+			
+		}
+		
+	};
 
 }]);
